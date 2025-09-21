@@ -10,95 +10,99 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { 
-      /* Advanced cool palette (teal/cyan/blue) */
-      --bg1:#0f172a; --bg2:#1e293b; --glass:rgba(255,255,255,.06); --glass-border:rgba(255,255,255,.12);
-      --muted:#94a3b8; --text:#e2e8f0; --brand:#06b6d4; --brand-2:#3b82f6; --accent:#22d3ee; --ring: rgba(34,211,238,.28);
-      --ok:#22c55e; --warn:#f59e0b;
+    :root {
+      /* White UI + your purple brand */
+      --bg:#ffffff;            /* WHITE background */
+      --text:#111827;          /* Gray-900 */
+      --muted:#6b7280;         /* Gray-500 */
+      --card:#ffffff;
+      --border:#e5e7eb;        /* Gray-200 */
+      --shadow:0 10px 30px rgba(17,24,39,.06);
+      --brand:#6F2DF5;         /* primary purple */
+      --brand-2:#9308F4;       /* secondary purple */
+      --accent:#8b5cf6;        /* violet accent for hovers */
     }
     *{box-sizing:border-box}
-    html,body{margin:0;min-height:100%;background:radial-gradient(1200px 600px at 80% -10%,#0b1530,transparent),linear-gradient(180deg,var(--bg1),var(--bg2));color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+    html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
     a{color:inherit}
-    .container{max-width:1120px;margin:0 auto;padding:24px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 18px;border-radius:14px;text-decoration:none;font-weight:700;border:1px solid var(--glass-border);background:#fff;color:#0b1220;transition:transform .15s ease, box-shadow .2s ease}
+    img{max-width:100%;display:block}
+    .container{max-width:1100px;margin:0 auto;padding:18px}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 18px;border-radius:12px;text-decoration:none;font-weight:700;border:1px solid var(--border);transition:transform .15s ease, box-shadow .2s ease}
     .btn:hover{transform:translateY(-1px)}
-    .btn.ghost{background:transparent;color:var(--text);backdrop-filter:blur(6px)}
-    .btn.brand{background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#00111a;border:none;box-shadow:0 10px 30px var(--ring)}
+    .btn.brand{background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#fff;border:none;box-shadow:var(--shadow)}
+    .btn.ghost{background:#f9fafb;color:var(--text)}
     .btn.block{width:100%}
-    header{position:sticky;top:0;backdrop-filter:blur(10px);background:linear-gradient(180deg,rgba(2,8,23,.75),rgba(2,8,23,.35));border-bottom:1px solid var(--glass-border);z-index:60}
-    .nav{display:flex;align-items:center;justify-content:space-between}
+
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
     .brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.2px}
     .brand img{width:28px;height:28px;border-radius:6px;object-fit:cover}
-    .brand .dot{width:28px;height:28px;border-radius:8px;background:conic-gradient(from 180deg,var(--brand),var(--brand-2));box-shadow:0 8px 30px var(--ring)}
-    .badge{display:inline-flex;gap:8px;align-items:center;font-size:12px;background:linear-gradient(90deg,var(--brand),var(--accent));color:#00111a;padding:6px 10px;border-radius:999px;border:1px solid var(--glass-border)}
+    .badge{display:inline-flex;gap:8px;align-items:center;font-size:12px;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#fff;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.04)}
 
-    /* Layout similar to product page: left gallery, right buy box */
-    .pdp{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start;margin-top:18px}
-    .panel{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid var(--glass-border);border-radius:18px;box-shadow:0 20px 60px rgba(2,10,36,.45);backdrop-filter:blur(8px)}
-    .pad{padding:18px}
+    /* PDP layout: gallery + buy box */
+    .pdp{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:start;margin-top:12px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow)}
+    .pad{padding:16px}
 
     .gallery{display:grid;gap:10px}
-    .hero-shot{aspect-ratio:16/10;background:#0b1530;border:1px solid var(--glass-border);border-radius:16px;overflow:hidden}
-    .hero-shot img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-shot{aspect-ratio:16/10;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#f8fafc}
     .thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-    .thumb{aspect-ratio:4/3;border-radius:12px;border:1px solid var(--glass-border);overflow:hidden;background:#0b1530}
-    .thumb img{width:100%;height:100%;object-fit:cover}
+    .thumb{aspect-ratio:4/3;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#f8fafc}
 
-    .title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-    h1{font-size:30px;margin:0}
-    .stars{color:#fde047}
+    h1{font-size:26px;margin:8px 0}
+    .muted{color:var(--muted)}
+    .stars{color:#f59e0b}
 
-    .price-row{display:flex;align-items:center;gap:12px;margin:8px 0 4px}
-    .old{color:#9fb0c8;text-decoration:line-through}
-    .save{color:var(--accent);font-weight:700}
-    .shipbar{display:flex;align-items:center;gap:10px;margin:10px 0;padding:10px;border-radius:10px;border:1px dashed var(--glass-border);background:var(--glass)}
+    .price-row{display:flex;align-items:center;gap:12px;margin:8px 0 6px}
+    .old{text-decoration:line-through;color:#9ca3af}
+    .save{color:#10b981;font-weight:700}
 
-    .stock{margin:10px 0}
-    .meter{height:10px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden}
-    .meter span{display:block;height:100%;background:linear-gradient(90deg,#22c55e,#f59e0b);width:72%}
+    .shipbar{display:flex;align-items:center;gap:10px;margin:10px 0;padding:10px;border-radius:10px;border:1px dashed var(--border);background:#f9fafb}
 
-    .countdown{display:flex;gap:10px;margin-top:12px}
-    .timer{background:var(--glass);border:1px solid var(--glass-border);padding:10px 12px;border-radius:12px;text-align:center}
-    .timer strong{font-size:18px;display:block}
+    .meter{height:10px;border-radius:999px;background:#f3f4f6;overflow:hidden}
+    .meter span{display:block;height:100%;background:linear-gradient(90deg,#10b981,#f59e0b);width:72%}
+
+    .countdown{display:flex;gap:8px;margin-top:8px}
+    .timer{background:#f9fafb;border:1px solid var(--border);padding:8px 10px;border-radius:10px;text-align:center}
+    .timer strong{font-size:16px;display:block}
     .timer small{color:var(--muted)}
 
-    .bullets{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-    .bullet{padding:12px;border:1px solid var(--glass-border);border-radius:12px;background:var(--glass);font-size:14px;color:var(--muted)}
+    .bullets{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+    .bullet{padding:10px;border:1px solid var(--border);border-radius:10px;background:#fff;font-size:14px;color:var(--muted)}
 
-    .payicons{display:flex;gap:10px;flex-wrap:wrap;opacity:.9}
-    .pill{font-size:12px;border:1px solid var(--glass-border);padding:6px 10px;border-radius:999px;background:var(--glass);color:var(--muted)}
-
-    .section{margin-top:18px}
+    .section{margin-top:16px}
     .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    iframe{width:100%;height:620px;border:0;border-radius:16px;background:#0b1530}
+    iframe{width:100%;height:600px;border:1px solid var(--border);border-radius:12px;background:#fff}
 
-    details{background:var(--glass);border:1px solid var(--glass-border);border-radius:14px;padding:14px}
-    summary{cursor:pointer;font-weight:600}
+    /* Trust badges & reviews */
+    .pills{display:flex;gap:10px;flex-wrap:wrap}
+    .pill{font-size:12px;border:1px solid var(--border);padding:6px 10px;border-radius:999px;background:#fff;color:var(--muted)}
 
-    footer{margin-top:28px;padding:24px 0;color:var(--muted)}
+    footer{margin-top:24px;padding:20px 0;border-top:1px solid var(--border)}
 
-    /* Sticky ATC bar on mobile */
-    .stickybar{position:sticky;bottom:0;z-index:70;background:linear-gradient(180deg,rgba(2,8,23,.65),rgba(2,8,23,.95));border-top:1px solid var(--glass-border);padding:12px}
-    .stickybar .inner{display:flex;gap:10px;align-items:center}
+    /* Sticky ATC bar (mobile) */
+    .stickybar{position:sticky;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--border);padding:10px}
+    .stickybar .inner{display:flex;gap:10px;align-items:center;justify-content:space-between}
     .stickybar .price{font-weight:800}
 
-    /* WhatsApp floating */
-    .wa{position:fixed;right:18px;bottom:18px;z-index:80}
-    .wa a{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#001d09;border-radius:999px;padding:12px 14px;font-weight:700;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.3)}
-
+    /* Responsive */
     @media (max-width: 980px){ .pdp{grid-template-columns:1fr} }
+    @media (max-width: 560px){
+      h1{font-size:22px}
+      .bullets{grid-template-columns:1fr}
+      .btn.block{width:100%}
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
       <div class="brand">
-        <!-- Replace src with your uploaded logo path (e.g., /assets/logo.png) -->
-        <img src="/assets/logo.png" alt="KendoStore logo" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'">
-        <span class="dot" style="display:none"></span>
+        <img src="/assets/logo.png" alt="KendoStore logo" onerror="this.style.display='none'">
         <span>KendoStore</span>
       </div>
-      <div class="stack">
+      <div class="stack" style="display:flex;gap:10px">
         <a class="btn ghost" href="#details">Details</a>
         <a class="btn brand" href="#buy">Order Now</a>
       </div>
@@ -106,10 +110,10 @@
   </header>
 
   <main class="container">
-    <!-- Product page layout inspired by your reference link -->
+    <!-- PDP: Gallery + Buy box -->
     <section class="pdp">
       <!-- Left: gallery -->
-      <div class="panel pad">
+      <div class="card pad">
         <div class="gallery">
           <div class="hero-shot"><img src="https://images.unsplash.com/photo-1498940757830-82f7813bf178?q=80&w=1400&auto=format&fit=crop" alt="Projector"></div>
           <div class="thumbs">
@@ -122,24 +126,19 @@
       </div>
 
       <!-- Right: buy box -->
-      <aside class="panel pad" id="buy">
-        <div class="title">
-          <span class="badge">10% OFF – Limited Time</span>
-          <h1>Smart Android Projector – Brighter, Sharper, Smarter 🎥</h1>
-        </div>
+      <aside class="card pad" id="buy">
+        <span class="badge">10% OFF – Limited Time</span>
+        <h1>Smart Android Projector – Brighter, Sharper, Smarter 🎥</h1>
         <div class="stars">★★★★★ <span class="muted">(128 reviews)</span></div>
 
         <div class="price-row">
           <span class="old">₦350,000</span>
-          <strong style="font-size:28px">₦315,000</strong>
+          <strong style="font-size:26px">₦315,000</strong>
           <span class="save">Save ₦35,000</span>
         </div>
 
         <div class="shipbar">🚚 Free Express Shipping • Pay on Delivery (selected locations)</div>
-        <div class="stock">
-          <small class="muted">Selling fast: only a few left today</small>
-          <div class="meter"><span></span></div>
-        </div>
+        <div class="meter"><span></span></div>
 
         <!-- Countdown -->
         <div class="countdown" id="countdown">
@@ -152,14 +151,6 @@
         <div class="section">
           <a class="btn brand block" href="https://docs.google.com/forms/d/e/1FAIpQLSfJzMsuDEDeZYAt5kX_aha8hjTIpJesmUY6GXVhrfIFZA-WWQ/viewform" target="_blank" rel="noopener">Order Now – Pay on Delivery</a>
         </div>
-        <div class="section">
-          <div class="payicons">
-            <span class="pill">✅ 100% Secure</span>
-            <span class="pill">💳 Card</span>
-            <span class="pill">📦 Pay on Delivery</span>
-            <span class="pill">🛡️ Warranty</span>
-          </div>
-        </div>
 
         <div class="section">
           <div class="bullets">
@@ -170,42 +161,24 @@
             <div class="bullet">Live football without subscription ⚽</div>
           </div>
         </div>
-      <div class="section" style="grid-column:1 / -1; margin-top:10px"></div>
       </aside>
     </section>
 
-    <!-- Trust badges strip -->
+    <!-- Trust badges -->
     <section class="section">
-      <div class="panel pad" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between">
-        <div class="pill">🛡️ 7‑day Replacement Warranty</div>
-        <div class="pill">🔒 100% Secure Checkout</div>
-        <div class="pill">🚚 Free Express Shipping</div>
-        <div class="pill">💬 Fast Support</div>
-      </div>
-    </section>
-
-    <!-- Reviews -->
-    <section class="section" id="reviews">
-      <div class="panel pad">
-        <h2 style="margin:0 0 8px">Customer Reviews</h2>
-        <div class="grid-2" style="gap:14px">
-          <div class="panel pad" style="background:var(--glass)">
-            <div class="stars">★★★★★</div>
-            <p class="muted">“Picture is insanely bright and sharp. Champions League matches feel like the cinema.”</p>
-            <small class="muted">— Chinedu A.</small>
-          </div>
-          <div class="panel pad" style="background:var(--glass)">
-            <div class="stars">★★★★★</div>
-            <p class="muted">“Auto focus is fast, Netflix and YouTube work out of the box. Great buy.”</p>
-            <small class="muted">— Mary O.</small>
-          </div>
+      <div class="card pad">
+        <div class="pills">
+          <div class="pill">🛡️ 7‑day Replacement Warranty</div>
+          <div class="pill">🔒 100% Secure Checkout</div>
+          <div class="pill">🚚 Free Express Shipping</div>
+          <div class="pill">💬 Fast Support</div>
         </div>
       </div>
     </section>
 
     <!-- Details / specs under the fold -->
     <section id="details" class="section">
-      <div class="panel pad">
+      <div class="card pad">
         <h2 style="margin:0 0 8px">Specifications</h2>
         <div class="grid-2">
           <ul>
@@ -221,26 +194,34 @@
       </div>
     </section>
 
-    <!-- Embedded form + FAQ -->
+    <!-- Embedded form + Reviews -->
     <section class="grid-2 section" id="form">
-      <div class="panel pad">
+      <div class="card pad">
         <h2 style="margin:0 0 8px">Place your order online</h2>
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfJzMsuDEDeZYAt5kX_aha8hjTIpJesmUY6GXVhrfIFZA-WWQ/viewform?embedded=true" title="KendoStore Order Form"></iframe>
       </div>
-      <div class="panel pad">
-        <h2 style="margin:0 0 8px">FAQ</h2>
-        <details><summary>Do you offer pay on delivery?</summary><p class="muted">Yes, in selected Lagos/Abuja areas. Outside these, we use prepaid or pickup points.</p></details>
-        <details><summary>Warranty & returns</summary><p class="muted">7‑day replacement for factory faults; 6‑month service warranty. Keep your packaging.</p></details>
-        <details><summary>What’s in the box?</summary><p class="muted">Projector, remote, power adapter, HDMI cable, quick start guide.</p></details>
-        <details><summary>Delivery time</summary><p class="muted">Lagos 1–2 days, other states 2–5 days.</p></details>
+      <div class="card pad">
+        <h2 style="margin:0 0 8px">Customer Reviews</h2>
+        <div class="grid-2" style="gap:12px">
+          <div class="card pad" style="box-shadow:none;border:1px solid var(--border)">
+            <div class="stars">★★★★★</div>
+            <p class="muted">“Picture is bright and sharp. Football nights feel like the cinema.”</p>
+            <small class="muted">— Chinedu A.</small>
+          </div>
+          <div class="card pad" style="box-shadow:none;border:1px solid var(--border)">
+            <div class="stars">★★★★★</div>
+            <p class="muted">“Auto focus is fast, Netflix and YouTube work out of the box.”</p>
+            <small class="muted">— Mary O.</small>
+          </div>
+        </div>
       </div>
     </section>
 
     <footer class="container">
-      <div class="panel pad">
-        <div class="stack" style="justify-content:space-between;align-items:center">
+      <div class="card pad" style="box-shadow:none">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
           <small class="muted">© 2025 KendoStore • RC: KENDO EMPIRE LIMITED</small>
-          <div class="stack">
+          <div style="display:flex;gap:10px">
             <a class="btn ghost" href="mailto:hello@kendostore.com">Email</a>
             <a class="btn brand" href="https://wa.me/2348108577500" target="_blank" rel="noopener">WhatsApp us</a>
           </div>
@@ -260,23 +241,17 @@
     </div>
   </div>
 
-  <!-- Floating WhatsApp button -->
-  <div class="wa"><a href="https://wa.me/2348108577500" target="_blank" rel="noopener">💬 Chat on WhatsApp</a></div>
-
   <!-- Countdown script: 5 days from first visit -->
   <script>
     (function(){
       const endKey = 'ksale_end';
       let end = localStorage.getItem(endKey);
       if(!end){ const d = new Date(); d.setDate(d.getDate()+5); end = d.getTime(); localStorage.setItem(endKey, end); } else { end = parseInt(end,10); }
-      const els = {d:document.getElementById('d'),h:document.getElementById('h'),m:document.getElementById('m'),s:document.getElementById('s')};
+      function set(id,val){ document.querySelectorAll('#'+id).forEach(e=>e.textContent=String(val).padStart(2,'0')); }
       function tick(){
         const now = Date.now(); let t = Math.max(0, end - now);
         const days = Math.floor(t/86400000); t%=86400000; const hrs = Math.floor(t/3600000); t%=3600000; const mins = Math.floor(t/60000); t%=60000; const secs = Math.floor(t/1000);
-        document.querySelectorAll('#d').forEach(e=>e.textContent=String(days).padStart(2,'0'));
-        document.querySelectorAll('#h').forEach(e=>e.textContent=String(hrs).padStart(2,'0'));
-        document.querySelectorAll('#m').forEach(e=>e.textContent=String(mins).padStart(2,'0'));
-        document.querySelectorAll('#s').forEach(e=>e.textContent=String(secs).padStart(2,'0'));
+        set('d',days); set('h',hrs); set('m',mins); set('s',secs);
       }
       tick(); setInterval(tick,1000);
     })();

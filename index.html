@@ -5,104 +5,142 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>KendoStore – Smart Android Projector</title>
   <meta name="description" content="Smart Android Projector – Brighter, Sharper, Smarter. 10% OFF for a limited time. Order now – Pay on delivery in selected locations." />
+  <link rel="icon" href="/assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root { 
-      /* Advanced cool palette */
-      --bg1:#0f172a;         /* slate-900 */
-      --bg2:#1e293b;         /* slate-800 */
-      --glass:rgba(255,255,255,.06);
-      --glass-border:rgba(255,255,255,.12);
-      --muted:#94a3b8;       /* slate-400 */
-      --text:#e2e8f0;        /* slate-200 */
-      --brand:#06b6d4;       /* cyan-500 */
-      --brand-2:#3b82f6;     /* blue-500 */
-      --accent:#22d3ee;      /* cyan-400 */
-      --ring: rgba(34,211,238,.28);
+      /* Advanced cool palette (teal/cyan/blue) */
+      --bg1:#0f172a; --bg2:#1e293b; --glass:rgba(255,255,255,.06); --glass-border:rgba(255,255,255,.12);
+      --muted:#94a3b8; --text:#e2e8f0; --brand:#06b6d4; --brand-2:#3b82f6; --accent:#22d3ee; --ring: rgba(34,211,238,.28);
+      --ok:#22c55e; --warn:#f59e0b;
     }
     *{box-sizing:border-box}
     html,body{margin:0;min-height:100%;background:radial-gradient(1200px 600px at 80% -10%,#0b1530,transparent),linear-gradient(180deg,var(--bg1),var(--bg2));color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
     a{color:inherit}
     .container{max-width:1120px;margin:0 auto;padding:24px}
-    .btn{display:inline-block;padding:14px 18px;border-radius:14px;text-decoration:none;font-weight:700;border:1px solid var(--glass-border);background:#fff;color:#0b1220;transition:transform .15s ease, box-shadow .2s ease}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 18px;border-radius:14px;text-decoration:none;font-weight:700;border:1px solid var(--glass-border);background:#fff;color:#0b1220;transition:transform .15s ease, box-shadow .2s ease}
     .btn:hover{transform:translateY(-1px)}
     .btn.ghost{background:transparent;color:var(--text);backdrop-filter:blur(6px)}
     .btn.brand{background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#00111a;border:none;box-shadow:0 10px 30px var(--ring)}
-    header{position:sticky;top:0;backdrop-filter:blur(10px);background:linear-gradient(180deg,rgba(2,8,23,.75),rgba(2,8,23,.35));border-bottom:1px solid var(--glass-border);z-index:50}
+    .btn.block{width:100%}
+    header{position:sticky;top:0;backdrop-filter:blur(10px);background:linear-gradient(180deg,rgba(2,8,23,.75),rgba(2,8,23,.35));border-bottom:1px solid var(--glass-border);z-index:60}
     .nav{display:flex;align-items:center;justify-content:space-between}
     .brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.2px}
+    .brand img{width:28px;height:28px;border-radius:6px;object-fit:cover}
     .brand .dot{width:28px;height:28px;border-radius:8px;background:conic-gradient(from 180deg,var(--brand),var(--brand-2));box-shadow:0 8px 30px var(--ring)}
     .badge{display:inline-flex;gap:8px;align-items:center;font-size:12px;background:linear-gradient(90deg,var(--brand),var(--accent));color:#00111a;padding:6px 10px;border-radius:999px;border:1px solid var(--glass-border)}
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:28px 0}
-    .panel{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid var(--glass-border);border-radius:24px;box-shadow:0 20px 60px rgba(2,10,36,.45);backdrop-filter:blur(8px)}
-    .panel.pad{padding:24px}
-    h1{font-size:44px;line-height:1.07;margin:8px 0 14px}
-    p.lead{font-size:18px;color:var(--muted)}
-    .stack{display:flex;gap:12px;flex-wrap:wrap}
-    .shot{aspect-ratio:16/10;background:#0b1530;border-radius:20px;position:relative;overflow:hidden;border:1px solid var(--glass-border)}
-    .shot img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05)}
+
+    /* Layout similar to product page: left gallery, right buy box */
+    .pdp{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start;margin-top:18px}
+    .panel{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid var(--glass-border);border-radius:18px;box-shadow:0 20px 60px rgba(2,10,36,.45);backdrop-filter:blur(8px)}
+    .pad{padding:18px}
+
+    .gallery{display:grid;gap:10px}
+    .hero-shot{aspect-ratio:16/10;background:#0b1530;border:1px solid var(--glass-border);border-radius:16px;overflow:hidden}
+    .hero-shot img{width:100%;height:100%;object-fit:cover;display:block}
+    .thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    .thumb{aspect-ratio:4/3;border-radius:12px;border:1px solid var(--glass-border);overflow:hidden;background:#0b1530}
+    .thumb img{width:100%;height:100%;object-fit:cover}
+
+    .title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    h1{font-size:30px;margin:0}
+    .stars{color:#fde047}
+
+    .price-row{display:flex;align-items:center;gap:12px;margin:8px 0 4px}
+    .old{color:#9fb0c8;text-decoration:line-through}
+    .save{color:var(--accent);font-weight:700}
+    .shipbar{display:flex;align-items:center;gap:10px;margin:10px 0;padding:10px;border-radius:10px;border:1px dashed var(--glass-border);background:var(--glass)}
+
+    .stock{margin:10px 0}
+    .meter{height:10px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden}
+    .meter span{display:block;height:100%;background:linear-gradient(90deg,#22c55e,#f59e0b);width:72%}
+
     .countdown{display:flex;gap:10px;margin-top:12px}
     .timer{background:var(--glass);border:1px solid var(--glass-border);padding:10px 12px;border-radius:12px;text-align:center}
     .timer strong{font-size:18px;display:block}
     .timer small{color:var(--muted)}
 
-    /* Features */
-    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
-    .feature{padding:18px;border:1px solid var(--glass-border);border-radius:18px;background:var(--glass)}
-    .feature h3{margin:0 0 4px;font-size:16px}
-    .feature p{margin:0;color:var(--muted);font-size:14px}
+    .bullets{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+    .bullet{padding:12px;border:1px solid var(--glass-border);border-radius:12px;background:var(--glass);font-size:14px;color:var(--muted)}
 
-    /* Specs */
-    .specs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
-    .spec{padding:14px;border:1px solid var(--glass-border);border-radius:14px;background:var(--glass)}
+    .payicons{display:flex;gap:10px;flex-wrap:wrap;opacity:.9}
+    .pill{font-size:12px;border:1px solid var(--glass-border);padding:6px 10px;border-radius:999px;background:var(--glass);color:var(--muted)}
 
-    /* Pricing */
-    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
-    .price{padding:22px;border:1px solid var(--glass-border);border-radius:18px;background:var(--glass)}
-    .price h3{margin:0 0 10px}
-    .old{color:#9fb0c8;text-decoration:line-through}
-    .save{color:var(--accent);font-weight:700}
+    .section{margin-top:18px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    iframe{width:100%;height:620px;border:0;border-radius:16px;background:#0b1530}
 
-    /* Form + FAQ */
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
-    iframe{width:100%;height:640px;border:0;border-radius:16px;background:#0b1530}
     details{background:var(--glass);border:1px solid var(--glass-border);border-radius:14px;padding:14px}
     summary{cursor:pointer;font-weight:600}
-    .muted{color:var(--muted)}
+
     footer{margin-top:28px;padding:24px 0;color:var(--muted)}
 
+    /* Sticky ATC bar on mobile */
+    .stickybar{position:sticky;bottom:0;z-index:70;background:linear-gradient(180deg,rgba(2,8,23,.65),rgba(2,8,23,.95));border-top:1px solid var(--glass-border);padding:12px}
+    .stickybar .inner{display:flex;gap:10px;align-items:center}
+    .stickybar .price{font-weight:800}
+
     /* WhatsApp floating */
-    .wa{position:fixed;right:18px;bottom:18px;z-index:60}
+    .wa{position:fixed;right:18px;bottom:18px;z-index:80}
     .wa a{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#001d09;border-radius:999px;padding:12px 14px;font-weight:700;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.3)}
 
-    /* Responsive */
-    @media (max-width: 980px){ .hero{grid-template-columns:1fr} .grid-2{grid-template-columns:1fr} h1{font-size:36px} }
-    @media (max-width: 560px){ .features,.pricing{grid-template-columns:1fr} h1{font-size:30px} }
+    @media (max-width: 980px){ .pdp{grid-template-columns:1fr} }
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
       <div class="brand">
-        <span class="dot"></span>
-        KendoStore
+        <!-- Replace src with your uploaded logo path (e.g., /assets/logo.png) -->
+        <img src="/assets/logo.png" alt="KendoStore logo" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'">
+        <span class="dot" style="display:none"></span>
+        <span>KendoStore</span>
       </div>
       <div class="stack">
-        <a class="btn ghost" href="#buy">Buy</a>
-        <a class="btn brand" href="https://wa.me/2348108577500" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn ghost" href="#details">Details</a>
+        <a class="btn brand" href="#buy">Order Now</a>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <!-- HERO -->
-    <section class="hero">
+    <!-- Product page layout inspired by your reference link -->
+    <section class="pdp">
+      <!-- Left: gallery -->
       <div class="panel pad">
-        <span class="badge">10% OFF – Limited Time</span>
-        <h1>Smart Android Projector – Brighter, Sharper, Smarter 🎥</h1>
-        <p class="lead">Order now – <strong>Pay on Delivery</strong> (selected locations). Fast delivery nationwide.</p>
+        <div class="gallery">
+          <div class="hero-shot"><img src="https://images.unsplash.com/photo-1498940757830-82f7813bf178?q=80&w=1400&auto=format&fit=crop" alt="Projector"></div>
+          <div class="thumbs">
+            <div class="thumb"><img src="https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?q=80&w=1400&auto=format&fit=crop" alt="Room"></div>
+            <div class="thumb"><img src="https://images.unsplash.com/photo-1541870795-1d19f69c2f4d?q=80&w=1400&auto=format&fit=crop" alt="Remote"></div>
+            <div class="thumb"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=1400&auto=format&fit=crop" alt="Living room"></div>
+            <div class="thumb"><img src="https://images.unsplash.com/photo-1512446816042-444d641267b5?q=80&w=1400&auto=format&fit=crop" alt="Cinema"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: buy box -->
+      <aside class="panel pad" id="buy">
+        <div class="title">
+          <span class="badge">10% OFF – Limited Time</span>
+          <h1>Smart Android Projector – Brighter, Sharper, Smarter 🎥</h1>
+        </div>
+        <div class="stars">★★★★★ <span class="muted">(128 reviews)</span></div>
+
+        <div class="price-row">
+          <span class="old">₦350,000</span>
+          <strong style="font-size:28px">₦315,000</strong>
+          <span class="save">Save ₦35,000</span>
+        </div>
+
+        <div class="shipbar">🚚 Free Express Shipping • Pay on Delivery (selected locations)</div>
+        <div class="stock">
+          <small class="muted">Selling fast: only a few left today</small>
+          <div class="meter"><span></span></div>
+        </div>
+
         <!-- Countdown -->
         <div class="countdown" id="countdown">
           <div class="timer"><strong id="d">00</strong><small>Days</small></div>
@@ -110,69 +148,83 @@
           <div class="timer"><strong id="m">00</strong><small>Mins</small></div>
           <div class="timer"><strong id="s">00</strong><small>Secs</small></div>
         </div>
-        <div class="stack" style="margin-top:12px">
-          <a class="btn brand" href="#buy">Order Now – Pay on Delivery</a>
-          <a class="btn ghost" href="#specs">See Specifications</a>
-        </div>
-        <!-- Features bullets -->
-        <div class="features" style="margin-top:18px">
-          <div class="feature"><h3>Sealed Optical Engine</h3><p>Fully enclosed, dust‑proof design for long life.</p></div>
-          <div class="feature"><h3>Auto Keystone & Focus</h3><p>Instantly straightens and sharpens your screen.</p></div>
-          <div class="feature"><h3>Bluetooth Remote</h3><p>Easy navigation from your couch.</p></div>
-          <div class="feature"><h3>Built‑in Apps</h3><p>Netflix, YouTube, Chrome, Prime Video & more.</p></div>
-          <div class="feature"><h3>Live Football ⚽</h3><p>Bonus: watch live matches without subscription.</p></div>
-        </div>
-      </div>
-      <div class="shot panel">
-        <img src="https://images.unsplash.com/photo-1498940757830-82f7813bf178?q=80&w=1400&auto=format&fit=crop" alt="Projector"/>
-      </div>
-    </section>
 
-    <!-- SPECS -->
-    <section id="specs" class="panel pad" style="margin-top:18px">
-      <h2 style="margin:0 0 8px">Specifications</h2>
-      <div class="specs">
-        <div class="spec"><strong>Display</strong><br><span class="muted">4.5" LTPS LCD</span></div>
-        <div class="spec"><strong>Resolution</strong><br><span class="muted">1920×1080P Full HD</span></div>
-        <div class="spec"><strong>Brightness</strong><br><span class="muted">700 ANSI Lumens</span></div>
-        <div class="spec"><strong>Throw Ratio</strong><br><span class="muted">1.3:1</span></div>
-        <div class="spec"><strong>Screen Size</strong><br><span class="muted">60–100" (1.3m–2.7m)</span></div>
-      </div>
-    </section>
-
-    <!-- PRICING -->
-    <section id="buy" class="panel pad" style="margin-top:18px">
-      <h2 style="margin:0 0 8px">Price & Discount</h2>
-      <div class="pricing">
-        <div class="price">
-          <h3>Smart Projector T1</h3>
-          <p><span class="old">₦350,000</span></p>
-          <p style="font-size:28px;margin:6px 0 4px"><strong>₦315,000</strong></p>
-          <p class="save">You save ₦35,000 (10% OFF)</p>
-          <div class="stack" style="margin-top:8px">
-            <a class="btn brand" href="https://docs.google.com/forms/d/e/1FAIpQLSfJzMsuDEDeZYAt5kX_aha8hjTIpJesmUY6GXVhrfIFZA-WWQ/viewform" target="_blank" rel="noopener">Order Now – Pay on Delivery</a>
-            <a class="btn ghost" href="#form">Order on this page</a>
+        <div class="section">
+          <a class="btn brand block" href="https://docs.google.com/forms/d/e/1FAIpQLSfJzMsuDEDeZYAt5kX_aha8hjTIpJesmUY6GXVhrfIFZA-WWQ/viewform" target="_blank" rel="noopener">Order Now – Pay on Delivery</a>
+        </div>
+        <div class="section">
+          <div class="payicons">
+            <span class="pill">✅ 100% Secure</span>
+            <span class="pill">💳 Card</span>
+            <span class="pill">📦 Pay on Delivery</span>
+            <span class="pill">🛡️ Warranty</span>
           </div>
         </div>
-        <div class="price">
-          <h3>Bundle: T1 + Tripod</h3>
-          <p class="muted">Add a sturdy tripod stand.</p>
-          <p><span class="old">₦380,000</span></p>
-          <p style="font-size:24px;margin:6px 0 4px"><strong>₦342,000</strong></p>
-          <a class="btn brand" href="https://docs.google.com/forms/d/e/1FAIpQLSfJzMsuDEDeZYAt5kX_aha8hjTIpJesmUY6GXVhrfIFZA-WWQ/viewform" target="_blank" rel="noopener">Order Bundle</a>
+
+        <div class="section">
+          <div class="bullets">
+            <div class="bullet">Sealed Optical Engine (dust‑proof & long life)</div>
+            <div class="bullet">Auto Keystone correction & Auto Focus</div>
+            <div class="bullet">Bluetooth Remote – easy navigation</div>
+            <div class="bullet">Built‑in apps: Netflix, YouTube, Chrome, Prime</div>
+            <div class="bullet">Live football without subscription ⚽</div>
+          </div>
         </div>
-        <div class="price">
-          <h3>Need Help?</h3>
-          <p class="muted">Questions about delivery or installation?</p>
-          <a class="btn ghost" href="https://wa.me/2348108577500" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      <div class="section" style="grid-column:1 / -1; margin-top:10px"></div>
+      </aside>
+    </section>
+
+    <!-- Trust badges strip -->
+    <section class="section">
+      <div class="panel pad" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+        <div class="pill">🛡️ 7‑day Replacement Warranty</div>
+        <div class="pill">🔒 100% Secure Checkout</div>
+        <div class="pill">🚚 Free Express Shipping</div>
+        <div class="pill">💬 Fast Support</div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="section" id="reviews">
+      <div class="panel pad">
+        <h2 style="margin:0 0 8px">Customer Reviews</h2>
+        <div class="grid-2" style="gap:14px">
+          <div class="panel pad" style="background:var(--glass)">
+            <div class="stars">★★★★★</div>
+            <p class="muted">“Picture is insanely bright and sharp. Champions League matches feel like the cinema.”</p>
+            <small class="muted">— Chinedu A.</small>
+          </div>
+          <div class="panel pad" style="background:var(--glass)">
+            <div class="stars">★★★★★</div>
+            <p class="muted">“Auto focus is fast, Netflix and YouTube work out of the box. Great buy.”</p>
+            <small class="muted">— Mary O.</small>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- FORM + FAQ -->
-    <section class="grid-2" style="margin-top:18px" id="form">
+    <!-- Details / specs under the fold -->
+    <section id="details" class="section">
       <div class="panel pad">
-        <h2 style="margin:0 0 8px">Place your order</h2>
+        <h2 style="margin:0 0 8px">Specifications</h2>
+        <div class="grid-2">
+          <ul>
+            <li>Display: 4.5" LTPS LCD</li>
+            <li>Resolution: 1920×1080P Full HD</li>
+            <li>Brightness: 700 ANSI Lumens</li>
+          </ul>
+          <ul>
+            <li>Throw Ratio: 1.3:1</li>
+            <li>Screen Size: 60–100 inches (1.3m–2.7m)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Embedded form + FAQ -->
+    <section class="grid-2 section" id="form">
+      <div class="panel pad">
+        <h2 style="margin:0 0 8px">Place your order online</h2>
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfJzMsuDEDeZYAt5kX_aha8hjTIpJesmUY6GXVhrfIFZA-WWQ/viewform?embedded=true" title="KendoStore Order Form"></iframe>
       </div>
       <div class="panel pad">
@@ -197,6 +249,17 @@
     </footer>
   </main>
 
+  <!-- Sticky ATC (mobile) -->
+  <div class="stickybar">
+    <div class="container inner">
+      <div>
+        <div class="muted" style="font-size:12px">Smart Android Projector</div>
+        <div class="price">₦315,000 <span class="old" style="margin-left:6px">₦350,000</span></div>
+      </div>
+      <a class="btn brand" href="https://docs.google.com/forms/d/e/1FAIpQLSfJzMsuDEDeZYAt5kX_aha8hjTIpJesmUY6GXVhrfIFZA-WWQ/viewform" target="_blank" rel="noopener">Order</a>
+    </div>
+  </div>
+
   <!-- Floating WhatsApp button -->
   <div class="wa"><a href="https://wa.me/2348108577500" target="_blank" rel="noopener">💬 Chat on WhatsApp</a></div>
 
@@ -205,24 +268,15 @@
     (function(){
       const endKey = 'ksale_end';
       let end = localStorage.getItem(endKey);
-      if(!end){
-        const d = new Date();
-        d.setDate(d.getDate()+5);
-        end = d.getTime();
-        localStorage.setItem(endKey, end);
-      } else { end = parseInt(end,10); }
+      if(!end){ const d = new Date(); d.setDate(d.getDate()+5); end = d.getTime(); localStorage.setItem(endKey, end); } else { end = parseInt(end,10); }
       const els = {d:document.getElementById('d'),h:document.getElementById('h'),m:document.getElementById('m'),s:document.getElementById('s')};
       function tick(){
-        const now = Date.now();
-        let t = Math.max(0, end - now);
-        const days = Math.floor(t/86400000); t%=86400000;
-        const hrs = Math.floor(t/3600000); t%=3600000;
-        const mins = Math.floor(t/60000); t%=60000;
-        const secs = Math.floor(t/1000);
-        els.d.textContent = String(days).padStart(2,'0');
-        els.h.textContent = String(hrs).padStart(2,'0');
-        els.m.textContent = String(mins).padStart(2,'0');
-        els.s.textContent = String(secs).padStart(2,'0');
+        const now = Date.now(); let t = Math.max(0, end - now);
+        const days = Math.floor(t/86400000); t%=86400000; const hrs = Math.floor(t/3600000); t%=3600000; const mins = Math.floor(t/60000); t%=60000; const secs = Math.floor(t/1000);
+        document.querySelectorAll('#d').forEach(e=>e.textContent=String(days).padStart(2,'0'));
+        document.querySelectorAll('#h').forEach(e=>e.textContent=String(hrs).padStart(2,'0'));
+        document.querySelectorAll('#m').forEach(e=>e.textContent=String(mins).padStart(2,'0'));
+        document.querySelectorAll('#s').forEach(e=>e.textContent=String(secs).padStart(2,'0'));
       }
       tick(); setInterval(tick,1000);
     })();

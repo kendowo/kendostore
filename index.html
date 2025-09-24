@@ -1,558 +1,144 @@
-<!-- /index.html -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#ffffff" />
-  <meta name="description" content="Smart Android Projector — affordable, portable, with built-in apps. Order now from KendoStore." />
-  <title>Smart Android Projector — KendoStore</title>
-
-  <!-- Font: Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- Preload key hero image for LCP -->
-  <link rel="preload" as="image" href="/assets/projector-front.jpg" imagesrcset="/assets/projector-front.jpg" />
-
-  <!-- Anime.js (animation-only, lightweight) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <title>Smart android projector – KendoStore</title>
+  <meta name="description" content="Smart android projector — Full HD, 700 ANSI, auto keystone/focus. 10% OFF. Pay on delivery." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html" aria-label="KendoStore Home">
-        <!-- Inline SVG placeholder logo to avoid external asset -->
-        <svg width="32" height="32" viewBox="0 0 32 32" role="img" aria-label="KendoStore">
-          <defs>
-            <linearGradient id="g" x1="0" x2="1">
-              <stop offset="0" stop-color="#6F2DF5"/><stop offset="1" stop-color="#9308F4"/>
-            </linearGradient>
-          </defs>
-          <rect x="0" y="0" width="32" height="32" rx="8" fill="url(#g)"></rect>
-          <path d="M10 22 L14 10 L18 18 L22 10" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" />
-        </svg>
-        <span class="logo-text">KendoStore</span>
-      </a>
-      <nav aria-label="Primary">
-        <a class="btn btn-primary" href="form.html">Order Now</a>
-      </nav>
-    </div>
+  <header class="container nav">
+    <a class="logo" href="#">KendoStore</a>
+    <nav>
+      <a class="btn btn-primary" href="#buy">Order Now</a>
+    </nav>
   </header>
 
-  <main id="main">
+  <main>
     <!-- HERO -->
-    <section class="hero container" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <span id="discount-badge" class="badge pill">10% OFF – Limited Time</span>
-        <h1 id="hero-title" class="hero-title">Smart android projector</h1>
-        <p id="hero-subtitle" class="hero-subtitle muted">
-          It’s 2025 — you no longer need to break the bank to get a smart TV in your home.
-          This projector makes getting TV much easier and affordable.
-        </p>
-        <div class="hero-ctas">
-          <a id="hero-primary-cta" class="btn btn-primary btn-lg" href="form.html">CLICK HERE TO ORDER NOW</a>
-          <a class="btn btn-link" href="#video" aria-label="Watch product video">Watch Video</a>
-        </div>
+    <section class="container hero" id="hero">
+      <span class="badge">10% OFF – Limited Time</span>
+      <h1>Smart android projector</h1>
+      <p class="lead">It’s 2025 — you no longer need to break the bank to get a smart TV in your home. This projector makes getting TV much easier and affordable.</p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="form.html">CLICK HERE TO ORDER NOW</a>
+        <a class="btn btn-secondary" href="#video">Watch Video</a>
       </div>
 
-      <div class="hero-strip">
-        <img src="/assets/projector-front.jpg" alt="Projector front view" class="hero-img" loading="eager" fetchpriority="high" />
-        <img src="/assets/projector-angle.jpg" alt="Projector angled view" class="hero-img" loading="lazy" />
-        <img src="/assets/projector-top.jpg" alt="Projector top view" class="hero-img" loading="lazy" />
+      <div class="gallery">
+        <img src="assets/projector-front.jpg" alt="Projector front view" class="g1">
+        <img src="assets/projector-angle.jpg" alt="Projector angled view" class="g2">
+        <img src="assets/projector-top.jpg" alt="Projector top view" class="g3">
       </div>
     </section>
 
-    <!-- BENEFITS -->
-    <section class="container" aria-labelledby="benefits-title">
-      <h2 id="benefits-title" class="section-title">Affordable. Portable. Truly Smart.</h2>
-      <p class="muted">
-        Get cinema-size entertainment without the TV price tag. This smart Android projector fits easily in your space,
-        travels from room to room, and runs your favorite apps out of the box—no extra boxes, no mess, just plug in and watch.
-      </p>
-    </section>
-
-    <!-- VIDEO -->
-    <section id="video" class="container" aria-labelledby="video-title">
-      <h2 id="video-title" class="section-title">See it in action</h2>
-      <div class="video-frame">
-        <!-- TODO: Replace the YouTube URL with your own if needed -->
-        <iframe
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-          title="Smart Android Projector demo video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
+    <!-- BENEFIT + VIDEO -->
+    <section class="container two-col" id="video">
+      <div>
+        <h2>Affordable. Portable. Truly Smart.</h2>
+        <p>Get cinema-size entertainment without the TV price tag. This smart Android projector fits easily in your space, travels from room to room, and runs your favorite apps out of the box—no extra boxes, no mess, just plug in and watch.</p>
+        <ul class="benefits">
+          <li>Built-in apps (Netflix, YouTube, Prime Video, Chrome).</li>
+          <li>Auto focus & auto keystone correction.</li>
+          <li>Bluetooth remote for effortless control.</li>
+        </ul>
+      </div>
+      <div class="video-wrap">
+        <iframe class="video"
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                title="Projector demo" allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
       </div>
     </section>
 
     <!-- FEATURES -->
-    <section class="container" aria-labelledby="features-title">
-      <h2 id="features-title" class="section-title">Key Features</h2>
-      <div class="grid features-grid">
-        <article class="card io-reveal">
-          <h3 class="card-title">Fully enclosed optical engine</h3>
-          <ul class="feature-list">
-            <li>Dust-proof design</li>
-            <li>Longer lifespan</li>
-          </ul>
-        </article>
-        <article class="card io-reveal">
-          <h3 class="card-title">Auto keystone & focusing</h3>
-          <ul class="feature-list">
-            <li>Quick setup</li>
-            <li>Always sharp & straight</li>
-          </ul>
-        </article>
-        <article class="card io-reveal">
-          <h3 class="card-title">Bluetooth remote</h3>
-          <ul class="feature-list">
-            <li>Comfortable control</li>
-            <li>No line-of-sight needed</li>
-          </ul>
-        </article>
+    <section class="container" id="features">
+      <h2>Key Features</h2>
+      <div class="cards">
+        <div class="card">Fully enclosed optical projector (dust-proof & long life)</div>
+        <div class="card">Auto keystone correction & focusing</div>
+        <div class="card">With Bluetooth remote</div>
       </div>
     </section>
 
-    <!-- SPECIFICATIONS -->
-    <section class="container" aria-labelledby="specs-title">
-      <h2 id="specs-title" class="section-title">Specifications</h2>
-      <div class="card io-reveal">
-        <dl class="specs-grid">
-          <div><dt>Resolution</dt><dd>Full HD [1920×1080p]</dd></div>
-          <div><dt>Brightness</dt><dd>700 ANSI Lumens</dd></div>
-          <div><dt>Throw ratio</dt><dd>1.3:1</dd></div>
-          <div><dt>Size / Distance</dt><dd>60–100 inch / 1.3–2.7 m</dd></div>
-          <div><dt>Projector size</dt><dd>230(L) × 195(W) × 165(H) mm</dd></div>
-        </dl>
+    <!-- SPECS -->
+    <section class="container" id="specs">
+      <h2>Projector specifications</h2>
+      <div class="specs">
+        <ul>
+          <li><strong>Full HD resolution</strong> — 1920×1080p</li>
+          <li><strong>Brightness</strong> — 700 ANSI Lumens</li>
+          <li><strong>Throw ratio</strong> — 1.3:1</li>
+        </ul>
+        <ul>
+          <li><strong>Size / Distance</strong> — 60–100 inch / 1.3–2.7 m</li>
+          <li><strong>Projector size</strong> — 230(L) × 195(W) × 165(H) mm</li>
+        </ul>
+      </div>
+      <div class="gallery-wide">
+        <img src="assets/projector-ports.jpg" alt="Projector ports">
+        <img src="assets/projector-back.jpg" alt="Projector back">
       </div>
     </section>
 
     <!-- 3 REASONS -->
-    <section class="container" aria-labelledby="reasons-title">
-      <h2 id="reasons-title" class="section-title">3 Reasons it’s better than a TV</h2>
-      <div class="grid reasons-grid">
-        <article class="card io-reveal reason">
-          <div class="reason-icon" aria-hidden="true">👨‍👩‍👧</div>
-          <h3 class="card-title">Parenting</h3>
-          <p class="muted">No fragile screen to break; safer peace of mind.</p>
-        </article>
-        <article class="card io-reveal reason">
-          <div class="reason-icon" aria-hidden="true">⚽</div>
-          <h3 class="card-title">Football lovers</h3>
-          <p class="muted">Access to live matches without subscription.</p>
-        </article>
-        <article class="card io-reveal reason">
-          <div class="reason-icon" aria-hidden="true">🧳</div>
-          <h3 class="card-title">Portability</h3>
-          <p class="muted">Easy to move room-to-room or travel.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- GALLERY -->
-    <section class="container" aria-labelledby="gallery-title">
-      <h2 id="gallery-title" class="section-title">Gallery</h2>
-      <div class="gallery">
-        <figure class="card">
-          <img src="/assets/projector-ports.jpg" alt="Projector ports close-up" loading="lazy" />
-          <figcaption class="muted">Connectivity ports</figcaption>
-        </figure>
-        <figure class="card">
-          <img src="/assets/projector-back.jpg" alt="Projector back side" loading="lazy" />
-          <figcaption class="muted">Rear panel</figcaption>
-        </figure>
+    <section class="container" id="reasons">
+      <h2>3 reasons it’s better than a TV</h2>
+      <div class="cards">
+        <div class="card">
+          <strong>1) Parents:</strong> No fragile screen to fix; enjoy peace of mind.
+        </div>
+        <div class="card">
+          <strong>2) Football lovers:</strong> Access live matches without subscription.
+        </div>
+        <div class="card">
+          <strong>3) Portability:</strong> Move from room to room or take on trips.
+        </div>
       </div>
     </section>
 
     <!-- COUNTDOWN + CTA -->
-    <section class="container cta-timer" aria-labelledby="deal-title">
-      <h2 id="deal-title" class="section-title">Deal ends in</h2>
-      <div class="countdown" aria-live="polite" aria-atomic="true">
-        <span id="countdown" class="countdown-digits" title="Time remaining">07:00:00</span>
+    <section class="container cta" id="buy">
+      <h2>Deal ends in</h2>
+      <div class="timer">
+        <span id="hh">07</span><small>hrs</small>
+        <span id="mm">00</span><small>min</small>
+        <span id="ss">00</span><small>sec</small>
       </div>
-      <div class="cta-actions">
-        <a class="btn btn-primary btn-xl" href="form.html">CLICK HERE TO ORDER NOW</a>
-        <p class="muted small">
-          <a class="muted underline" href="https://docs.google.com/forms/d/e/1FAIpQLSfJzMsuDEDeZYAt5kX_aha8hjTIpJesmUY6GXVhrfIFZA-WWQ/viewform" target="_blank" rel="noopener">Order via Google Form</a>
-        </p>
+      <a class="btn btn-primary btn-big" href="form.html">CLICK HERE TO ORDER NOW</a>
+      <p class="muted"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfJzMsuDEDeZYAt5kX_aha8hjTIpJesmUY6GXVhrfIFZA-WWQ/viewform" target="_blank" rel="noopener">Open Google Form in new tab</a></p>
+      <div class="trust">
+        <span class="pill">🔒 Secure Checkout</span>
+        <span class="pill">🚚 Fast Shipping</span>
+        <span class="pill">🛡️ 7-Day Replacement</span>
       </div>
-    </section>
-
-    <!-- TRUST BADGES -->
-    <section class="trust container" aria-label="Trust badges">
-      <ul class="trust-row">
-        <li>🔒 Secure Checkout</li>
-        <li>🚚 Fast Shipping</li>
-        <li>🛡️ 7-Day Replacement</li>
-      </ul>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <nav class="footer-links" aria-label="Footer">
-        <a href="mailto:hello@kendostore.com">hello@kendostore.com</a>
-        <a href="https://wa.me/2348108577500" target="_blank" rel="noopener">WhatsApp</a>
-      </nav>
-      <p class="muted">© 2025 KendoStore</p>
-    </div>
-  </footer>
-
-  <!-- Sticky Mobile Order Bar -->
-  <div class="stickybar" role="region" aria-label="Quick order">
-    <div class="stickybar-inner container">
-      <div class="stickybar-price">
-        <!-- TODO: Replace with your actual price -->
-        <strong>From ₦<span>—</span></strong><span class="muted small"> Pay on delivery*</span>
+  <!-- Sticky mobile bar -->
+  <div class="stickybar">
+    <div class="sticky-inner">
+      <div>
+        <div class="muted mini">Smart android projector</div>
+        <strong>₦315,000 <s class="old">₦350,000</s></strong>
       </div>
-      <a class="btn btn-primary btn-sm" href="form.html" aria-label="Order now">Order Now</a>
+      <a class="btn btn-primary" href="form.html">Order</a>
     </div>
   </div>
 
-  <script src="script.js"></script>
-  <noscript>
-    <div class="container muted" style="margin:1rem 0">JavaScript is disabled; animations and countdown are unavailable.</div>
-  </noscript>
-</body>
-</html>
-/* /styles.css */
-:root{
-  --bg:#ffffff;
-  --text:#111827;
-  --muted:#6b7280;
-  --border:#e5e7eb;
-  --brand-start:#6F2DF5;
-  --brand-end:#9308F4;
-  --radius:12px;
-  --shadow:0 8px 20px rgba(17,24,39,0.08);
-  --container:1100px;
-}
-
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji","Segoe UI Emoji";
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
-}
-
-img{max-width:100%;display:block;border-radius:12px}
-a{text-decoration:none;color:inherit}
-a.underline{text-decoration:underline}
-small,.small{font-size:.875rem}
-
-.container{width:100%;max-width:var(--container);margin-inline:auto;padding:0 16px}
-.section-title{font-size:1.25rem;font-weight:800;margin:2rem 0 1rem}
-.muted{color:var(--muted)}
-.pill{border-radius:999px}
-
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  border:1px solid transparent;border-radius:var(--radius);
-  padding:.7rem 1rem;font-weight:700;cursor:pointer;transition:transform .1s ease, box-shadow .2s ease, opacity .2s ease;
-}
-.btn:focus-visible{outline:3px solid #c7b6ff;outline-offset:2px} /* why: visible focus */
-.btn:hover{transform:translateY(-1px)}
-.btn:active{transform:translateY(0)}
-.btn-lg{padding:.9rem 1.25rem;font-size:1rem}
-.btn-xl{padding:1rem 1.5rem;font-size:1.05rem}
-.btn-sm{padding:.55rem .9rem;font-size:.95rem}
-
-.btn-primary{
-  color:#fff;
-  background-image:linear-gradient(135deg,var(--brand-start),var(--brand-end));
-  box-shadow:0 6px 16px rgba(147,8,244,.25);
-}
-.btn-primary:hover{box-shadow:0 10px 24px rgba(111,45,245,.35)}
-.btn-link{color:var(--brand-end);font-weight:600}
-
-.badge{
-  display:inline-flex;gap:.5rem;align-items:center;
-  background-image:linear-gradient(135deg,var(--brand-start),var(--brand-end));
-  color:#fff;font-weight:800;letter-spacing:.3px;
-  padding:.4rem .8rem;font-size:.8rem;box-shadow:var(--shadow);
-}
-
-.card{
-  background:#fff;border:1px solid var(--border);border-radius:16px;padding:1rem;box-shadow:var(--shadow);
-}
-.card-title{margin:.25rem 0 .5rem;font-size:1.05rem}
-
-.grid{display:grid;gap:1rem}
-.features-grid{grid-template-columns:1fr;align-items:stretch}
-.reasons-grid{grid-template-columns:1fr}
-.specs-grid{display:grid;grid-template-columns:1fr;gap:.75rem}
-.specs-grid dt{font-weight:700}
-.specs-grid dd{margin:0;color:var(--muted)}
-.feature-list{margin:0;padding-left:1.1rem}
-.feature-list li{margin:.25rem 0}
-
-.gallery{display:grid;grid-template-columns:1fr;gap:1rem}
-
-/* Header */
-.site-header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);z-index:50}
-.header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-.logo{display:flex;align-items:center;gap:.5rem}
-.logo-text{font-weight:800}
-
-/* Hero */
-.hero{display:grid;gap:1.25rem;padding:1.25rem 0}
-.hero-title{font-size:1.8rem;line-height:1.2;margin:.5rem 0}
-.hero-subtitle{margin:.5rem 0 1rem}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:.75rem}
-.hero-strip{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem}
-.hero-img{aspect-ratio:4/3;object-fit:cover}
-
-/* Video */
-.video-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow)}
-.video-frame iframe{position:absolute;inset:0;width:100%;height:100%}
-
-/* Countdown */
-.cta-timer{text-align:center;padding:1rem 0 2rem}
-.countdown-digits{display:inline-block;font-variant-numeric:tabular-nums;letter-spacing:1px;font-size:2rem;font-weight:800;background:#fff;border:1px solid var(--border);border-radius:12px;padding:.75rem 1rem;box-shadow:var(--shadow)}
-.cta-actions{margin-top:1rem}
-
-/* Trust badges */
-.trust-row{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;list-style:none;padding:0;margin:1.25rem 0 2rem 0}
-.trust-row li{border:1px solid var(--border);padding:.5rem .75rem;border-radius:999px;background:#fff}
-
-/* Reasons */
-.reason{display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:center}
-.reason-icon{font-size:1.5rem}
-
-/* Sticky bottom bar (mobile-first) */
-.stickybar{
-  position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--border);box-shadow:0 -6px 20px rgba(17,24,39,0.06);
-}
-.stickybar-inner{display:flex;align-items:center;justify-content:space-between;padding:.6rem 16px}
-.stickybar-price{display:flex;align-items:baseline;gap:.5rem}
-
-/* Reveal baseline (elements animated via JS) */
-.io-reveal{opacity:0;transform:translateY(18px)}
-
-/* Footer */
-.site-footer{border-top:1px solid var(--border);padding:1.25rem 0;margin-bottom:68px}
-.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-.footer-links{display:flex;gap:1rem}
-
-/* Larger screens */
-@media (min-width:768px){
-  .hero{grid-template-columns:1.1fr .9fr;align-items:center}
-  .hero-title{font-size:2.2rem}
-  .section-title{font-size:1.5rem}
-  .features-grid{grid-template-columns:repeat(3,1fr)}
-  .reasons-grid{grid-template-columns:repeat(3,1fr)}
-  .specs-grid{grid-template-columns:repeat(2,1fr)}
-  .gallery{grid-template-columns:repeat(2,1fr)}
-  .site-footer{margin-bottom:0}
-  .stickybar{display:none} /* why: large screens already have prominent CTAs */
-}
-// /script.js
-
-// ------- COUNTDOWN (loops every 7 hours) -------
-const DURATION_MS = 7 * 60 * 60 * 1000; // 7 hours
-const STORAGE_KEY = "deal_end";
-
-function getOrInitEndTime() {
-  const stored = localStorage.getItem(STORAGE_KEY);
-  const now = Date.now();
-  if (stored) {
-    const end = parseInt(stored, 10);
-    if (!Number.isNaN(end) && end > now - DURATION_MS) return end;
-  }
-  const newEnd = now + DURATION_MS;
-  localStorage.setItem(STORAGE_KEY, String(newEnd));
-  return newEnd;
-}
-
-function formatHMS(ms) {
-  const clamped = Math.max(0, ms);
-  const s = Math.floor(clamped / 1000);
-  const hrs = Math.floor(s / 3600);
-  const mins = Math.floor((s % 3600) / 60);
-  const secs = s % 60;
-  const pad = (n) => String(n).padStart(2, "0");
-  return `${pad(hrs)}:${pad(mins)}:${pad(secs)}`;
-}
-
-function startCountdown() {
-  const el = document.getElementById("countdown");
-  if (!el) return;
-  let endTime = getOrInitEndTime();
-
-  const tick = () => {
-    const now = Date.now();
-    let remaining = endTime - now;
-    if (remaining <= 0) {
-      // why: loop the offer; keep urgency rolling
-      endTime = now + DURATION_MS;
-      localStorage.setItem(STORAGE_KEY, String(endTime));
-      remaining = endTime - now;
-    }
-    el.textContent = formatHMS(remaining);
-  };
-
-  tick();
-  setInterval(tick, 1000);
-}
-
-// ------- ANIMATIONS (Anime.js) -------
-function runIntroAnimations() {
-  if (typeof anime === "undefined") return; // why: fail gracefully if CDN blocked
-
-  const tl = anime.timeline({ easing: "easeOutQuad", duration: 650 });
-
-  tl.add({
-    targets: "#hero-title",
-    opacity: [0, 1],
-    translateY: [24, 0]
-  })
-    .add(
-      {
-        targets: "#hero-subtitle",
-        opacity: [0, 1],
-        translateY: [24, 0]
-      },
-      "-=300"
-    )
-    .add(
-      {
-        targets: ".hero-strip img",
-        opacity: [0, 1],
-        scale: [0.94, 1],
-        translateY: [14, 0],
-        delay: anime.stagger(120)
-      },
-      "-=200"
-    )
-    .add(
-      {
-        targets: "#discount-badge",
-        opacity: [0, 1],
-        translateY: [-6, 0],
-        scale: [0.96, 1]
-      },
-      "-=400"
-    )
-    .add(
-      {
-        targets: "#hero-primary-cta",
-        opacity: [0, 1],
-        translateY: [16, 0],
-        scale: [0.98, 1]
-      },
-      "-=450"
-    );
-}
-
-function setupIntersectionAnimations() {
-  if (typeof IntersectionObserver === "undefined" || typeof anime === "undefined") {
-    // Fallback: just show them
-    document.querySelectorAll(".io-reveal").forEach((el) => {
-      el.style.opacity = 1;
-      el.style.transform = "none";
-    });
-    return;
-  }
-
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        const el = entry.target;
-        if (entry.isIntersecting && !el.dataset.animated) {
-          el.dataset.animated = "1";
-          anime({
-            targets: el,
-            opacity: [0, 1],
-            translateY: [18, 0],
-            duration: 600,
-            easing: "easeOutQuad"
-          });
-          io.unobserve(el);
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
-
-  document.querySelectorAll(".io-reveal").forEach((el) => io.observe(el));
-}
-
-// ------- INIT -------
-document.addEventListener("DOMContentLoaded", () => {
-  runIntroAnimations();
-  setupIntersectionAnimations();
-  startCountdown();
-});
-<!-- /form.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Place Your Order — KendoStore</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html">
-        <svg width="28" height="28" viewBox="0 0 32 32" role="img" aria-label="KendoStore">
-          <defs>
-            <linearGradient id="g2" x1="0" x2="1">
-              <stop offset="0" stop-color="#6F2DF5"/><stop offset="1" stop-color="#9308F4"/>
-            </linearGradient>
-          </defs>
-        <rect x="0" y="0" width="32" height="32" rx="8" fill="url(#g2)"></rect>
-        <path d="M10 22 L14 10 L18 18 L22 10" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" />
-        </svg>
-        <span class="logo-text">KendoStore</span>
-      </a>
-      <nav><a class="btn btn-link" href="index.html">← Back to product</a></nav>
-    </div>
-  </header>
-
-  <main class="container" style="padding:1rem 0 2rem">
-    <h1 class="section-title" style="margin-top:1rem">Place Your Order</h1>
-    <p class="muted" style="margin-top:.25rem">
-      Fast delivery nationwide. <strong>Pay on delivery</strong> where available. You’ll receive a confirmation after submitting this form.
-    </p>
-
-    <div class="card" style="padding:0;overflow:hidden">
-      <!-- Responsive Google Form embed -->
-      <div class="video-frame" style="border:0;border-radius:0">
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSfJzMsuDEDeZYAt5kX_aha8hjTIpJesmUY6GXVhrfIFZA-WWQ/viewform?embedded=true"
-          title="KendoStore Order Form"
-          allow="clipboard-write"
-          loading="lazy"
-        >Loading…</iframe>
-      </div>
-    </div>
-
-    <p class="muted small" style="margin-top:.75rem">
-      Having trouble? Open the form directly:
-      <a class="underline" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSfJzMsuDEDeZYAt5kX_aha8hjTIpJesmUY6GXVhrfIFZA-WWQ/viewform">Google Form</a>
-    </p>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <nav class="footer-links" aria-label="Footer">
-        <a href="mailto:hello@kendostore.com">hello@kendostore.com</a>
-        <a href="https://wa.me/2348108577500" target="_blank" rel="noopener">WhatsApp</a>
-      </nav>
-      <p class="muted">© 2025 KendoStore</p>
+  <footer class="container footer">
+    <small>© 2025 KendoStore</small>
+    <div class="footer-links">
+      <a href="mailto:hello@kendostore.com">Email</a>
+      <a href="https://wa.me/2348108577500" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </footer>
 </body>

@@ -1,145 +1,629 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Smart android projector – KendoStore</title>
-  <meta name="description" content="Smart android projector — Full HD, 700 ANSI, auto keystone/focus. 10% OFF. Pay on delivery." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" defer></script>
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Android Projector | Big Screen Experience Without the Big Price</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4ade80;
+            --warning: #facc15;
+            --danger: #f87171;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--gray);
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(67, 97, 238, 0.15) 0%, rgba(63, 55, 201, 0.15) 100%);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        /* Timer Section */
+        .timer-container {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .timer-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--danger);
+            font-size: 1.1rem;
+        }
+        
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .timer-unit {
+            background: var(--primary);
+            color: white;
+            padding: 12px 5px;
+            border-radius: 8px;
+            min-width: 70px;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        
+        .timer-label {
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: block;
+            color: var(--light);
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(67, 97, 238, 0.6);
+        }
+        
+        /* Features Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Specs Section */
+        .specs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .spec-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .spec-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .spec-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(67, 97, 238, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 28px;
+        }
+        
+        .spec-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .spec-value {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        /* Benefits Section */
+        .benefits-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .benefit-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+            border-radius: 20px;
+            margin: 50px 0;
+        }
+        
+        .final-cta h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .final-cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .final-cta .cta-button {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .final-cta .cta-button:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .timer-unit {
+                min-width: 50px;
+                padding: 10px 0;
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .timer {
+                gap: 8px;
+            }
+            
+            .timer-unit {
+                min-width: 40px;
+                padding: 8px 0;
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                padding: 14px 30px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header class="container nav">
-    <a class="logo" href="#">KendoStore</a>
-    <nav>
-      <a class="btn btn-primary" href="#buy">Order Now</a>
-    </nav>
-  </header>
-
-  <main>
-    <!-- HERO -->
-    <section class="container hero" id="hero">
-      <span class="badge">10% OFF – Limited Time</span>
-      <h1>Smart android projector</h1>
-      <p class="lead">It’s 2025 — you no longer need to break the bank to get a smart TV in your home. This projector makes getting TV much easier and affordable.</p>
-
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="form.html">CLICK HERE TO ORDER NOW</a>
-        <a class="btn btn-secondary" href="#video">Watch Video</a>
-      </div>
-
-      <div class="gallery">
-        <img src="assets/projector-front.jpg" alt="Projector front view" class="g1">
-        <img src="assets/projector-angle.jpg" alt="Projector angled view" class="g2">
-        <img src="assets/projector-top.jpg" alt="Projector top view" class="g3">
-      </div>
-    </section>
-
-    <!-- BENEFIT + VIDEO -->
-    <section class="container two-col" id="video">
-      <div>
-        <h2>Affordable. Portable. Truly Smart.</h2>
-        <p>Get cinema-size entertainment without the TV price tag. This smart Android projector fits easily in your space, travels from room to room, and runs your favorite apps out of the box—no extra boxes, no mess, just plug in and watch.</p>
-        <ul class="benefits">
-          <li>Built-in apps (Netflix, YouTube, Prime Video, Chrome).</li>
-          <li>Auto focus & auto keystone correction.</li>
-          <li>Bluetooth remote for effortless control.</li>
-        </ul>
-      </div>
-      <div class="video-wrap">
-        <iframe class="video"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Projector demo" allowfullscreen
-                referrerpolicy="strict-origin-when-cross-origin">
-        </iframe>
-      </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section class="container" id="features">
-      <h2>Key Features</h2>
-      <div class="cards">
-        <div class="card">Fully enclosed optical projector (dust-proof & long life)</div>
-        <div class="card">Auto keystone correction & focusing</div>
-        <div class="card">With Bluetooth remote</div>
-      </div>
-    </section>
-
-    <!-- SPECS -->
-    <section class="container" id="specs">
-      <h2>Projector specifications</h2>
-      <div class="specs">
-        <ul>
-          <li><strong>Full HD resolution</strong> — 1920×1080p</li>
-          <li><strong>Brightness</strong> — 700 ANSI Lumens</li>
-          <li><strong>Throw ratio</strong> — 1.3:1</li>
-        </ul>
-        <ul>
-          <li><strong>Size / Distance</strong> — 60–100 inch / 1.3–2.7 m</li>
-          <li><strong>Projector size</strong> — 230(L) × 195(W) × 165(H) mm</li>
-        </ul>
-      </div>
-      <div class="gallery-wide">
-        <img src="assets/projector-ports.jpg" alt="Projector ports">
-        <img src="assets/projector-back.jpg" alt="Projector back">
-      </div>
-    </section>
-
-    <!-- 3 REASONS -->
-    <section class="container" id="reasons">
-      <h2>3 reasons it’s better than a TV</h2>
-      <div class="cards">
-        <div class="card">
-          <strong>1) Parents:</strong> No fragile screen to fix; enjoy peace of mind.
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-video"></i>
+                ProjectorPro
+            </div>
         </div>
-        <div class="card">
-          <strong>2) Football lovers:</strong> Access live matches without subscription.
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Big Screen Experience Without Breaking the Bank</h1>
+                <p>In 2025, you no longer need to spend thousands on a smart TV. Our <span class="highlight">Smart Android Projector</span> delivers a massive, immersive viewing experience at a fraction of the cost.</p>
+                
+                <div class="timer-container">
+                    <div class="timer-title">LIMITED TIME OFFER - SALE ENDS IN:</div>
+                    <div class="timer" id="countdown-timer">
+                        <div class="timer-unit">
+                            <span id="days">00</span>
+                            <span class="timer-label">DAYS</span>
+                        </div>
+                        <div class="timer-unit">
+                            <span id="hours">00</span>
+                            <span class="timer-label">HOURS</span>
+                        </div>
+                        <div class="timer-unit">
+                            <span id="minutes">00</span>
+                            <span class="timer-label">MINUTES</span>
+                        </div>
+                        <div class="timer-unit">
+                            <span id="seconds">00</span>
+                            <span class="timer-label">SECONDS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="#order" class="cta-button">GET YOUR PROJECTOR NOW</a>
+                <p><i class="fas fa-shield-alt"></i> 30-Day Money-Back Guarantee | Free Shipping</p>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1587797160394-6e94983a8e6b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Smart Android Projector" style="max-width: 100%; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+            </div>
         </div>
-        <div class="card">
-          <strong>3) Portability:</strong> Move from room to room or take on trips.
-        </div>
-      </div>
     </section>
 
-    <!-- COUNTDOWN + CTA -->
-    <section class="container cta" id="buy">
-      <h2>Deal ends in</h2>
-      <div class="timer">
-        <span id="hh">07</span><small>hrs</small>
-        <span id="mm">00</span><small>min</small>
-        <span id="ss">00</span><small>sec</small>
-      </div>
-      <a class="btn btn-primary btn-big" href="form.html">CLICK HERE TO ORDER NOW</a>
-      <p class="muted"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfJzMsuDEDeZYAt5kX_aha8hjTIpJesmUY6GXVhrfIFZA-WWQ/viewform" target="_blank" rel="noopener">Open Google Form in new tab</a></p>
-      <div class="trust">
-        <span class="pill">🔒 Secure Checkout</span>
-        <span class="pill">🚚 Fast Shipping</span>
-        <span class="pill">🛡️ 7-Day Replacement</span>
-      </div>
+    <!-- Specifications Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Powerful Specifications</h2>
+                <p>Engineered for the perfect home entertainment experience</p>
+            </div>
+            <div class="specs-container">
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-hd"></i>
+                    </div>
+                    <div class="spec-title">Full HD Resolution</div>
+                    <div class="spec-value">1920×1080p</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="spec-title">Brightness</div>
+                    <div class="spec-value">700 ANSI Lumens</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <div class="spec-title">Throw Ratio</div>
+                    <div class="spec-value">1.3:1</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                    <div class="spec-title">Screen Size/Distance</div>
+                    <div class="spec-value">60-100 inch<br>1.3-2.7M</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <div class="spec-title">Compact Size</div>
+                    <div class="spec-value">230 × 195 × 165 mm</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-bluetooth-b"></i>
+                    </div>
+                    <div class="spec-title">Bluetooth Remote</div>
+                    <div class="spec-value">Included</div>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <!-- Sticky mobile bar -->
-  <div class="stickybar">
-    <div class="sticky-inner">
-      <div>
-        <div class="muted mini">Smart android projector</div>
-        <strong>₦315,000 <s class="old">₦350,000</s></strong>
-      </div>
-      <a class="btn btn-primary" href="form.html">Order</a>
-    </div>
-  </div>
+    <!-- Features Section -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Our Smart Projector?</h2>
+                <p>Experience entertainment like never before with these game-changing features</p>
+            </div>
+            <div class="specs-container">
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <div class="spec-title">Auto Keystone Correction</div>
+                    <p>Perfect rectangular image every time, even when placed at an angle</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <div class="spec-title">Auto Focus</div>
+                    <p>Crystal clear image with zero manual adjustments needed</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="spec-title">Fully Enclosed Optics</div>
+                    <p>Dust-proof design ensures longevity and consistent performance</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fab fa-android"></i>
+                    </div>
+                    <div class="spec-title">Android OS</div>
+                    <p>Access all your favorite apps and streaming services instantly</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <div class="spec-title">Dual-Band WiFi</div>
+                    <p>Stable, high-speed connectivity for seamless streaming</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-volume-up"></i>
+                    </div>
+                    <div class="spec-title">Built-in Speakers</div>
+                    <p>Powerful audio that fills your room without external speakers</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer class="container footer">
-    <small>© 2025 KendoStore</small>
-    <div class="footer-links">
-      <a href="mailto:hello@kendostore.com">Email</a>
-      <a href="https://wa.me/2348108577500" target="_blank" rel="noopener">WhatsApp</a>
-    </div>
-  </footer>
+    <!-- Benefits Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>3 Reasons Why This Projector Beats Traditional TVs</h2>
+                <p>Transform your entertainment experience today</p>
+            </div>
+            <div class="benefits-container">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="benefit-title">Perfect for Parents</h3>
+                    <p>No more worrying about broken screens! With a projector, there's no fragile display for little hands to damage. Enjoy family movie nights with complete peace of mind.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <h3 class="benefit-title">Football Fan's Dream</h3>
+                    <p>Watch every match in massive stadium-like quality! Access all football content without expensive subscriptions. Create your own home stadium experience for every game.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-suitcase-rolling"></i>
+                    </div>
+                    <h3 class="benefit-title">Ultimate Portability</h3>
+                    <p>Take your entertainment anywhere! Lightweight and compact design makes it easy to move between rooms, to friends' houses, or even on vacation. Your big screen goes where you go.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section">
+        <div class="container">
+            <div class="final-cta" id="order">
+                <h2>Transform Your Home Entertainment Today</h2>
+                <p>Join thousands of satisfied customers who've upgraded their viewing experience without breaking the bank.</p>
+                <a href="#" class="cta-button">ORDER NOW - LIMITED STOCK!</a>
+                <p>Free Shipping • 2-Year Warranty • 30-Day Money-Back Guarantee</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 ProjectorPro. All rights reserved. | Smart Android Projector</p>
+            <p>Experience cinema-quality entertainment in your living room</p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            // Set deadline to 3 days from now
+            const deadline = new Date();
+            deadline.setDate(deadline.getDate() + 3);
+            
+            const distance = deadline.getTime() - now;
+            
+            if (distance < 0) {
+                document.getElementById("countdown-timer").innerHTML = "OFFER EXPIRED";
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>

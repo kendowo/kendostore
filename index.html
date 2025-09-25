@@ -109,6 +109,9 @@
     .cta-button-urgent:hover{background:linear-gradient(135deg,#d32f2f,#b71c1c);transform:translateY(-3px);box-shadow:0 6px 16px rgba(229,57,53,0.5)}
     @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(229,57,53,0.4)}70%{box-shadow:0 0 0 12px rgba(229,57,53,0)}100%{box-shadow:0 0 0 0 rgba(229,57,53,0)}}
     
+    /* Embedded Form Section */
+    #order-form-section{background:#f9f7ff}
+    
     /* FAQ */
     .faq{padding:50px 0;background:#fff}
     .faq-item{margin-bottom:20px;border-bottom:1px solid #eee;padding-bottom:20px}
@@ -401,13 +404,45 @@
     <div class="container">
       <h2>Don’t Wait for Regret</h2>
       <p>Every day you delay, you miss out on family movie nights, football matches in stadium-size glory, and peace of mind. This isn’t just a projector—it’s your ticket to a better home entertainment experience.</p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd1X0lMC_3GDlb0qmfbZopcxyx_hEVAaDA7qZrDjd1suJbjkA/viewform?usp=header" 
-         class="cta-button-urgent" 
-         target="_blank">
+      <a href="#" class="cta-button-urgent" id="reveal-form-btn">
         ORDER NOW BEFORE DISCOUNT EXPIRES!
       </a>
     </div>
   </section>
+
+  <!-- Embedded Google Form Section (Hidden Until Clicked) -->
+  <div id="order-form-section" style="display: none; padding: 50px 0; background: #f9f7ff;">
+    <div class="container">
+      <!-- Reassurance Note + Trust Badges -->
+      <div style="max-width: 600px; margin: 0 auto 30px; text-align: center; background: white; padding: 20px; border-radius: 12px; border: 1px solid #eee;">
+        <p style="font-weight: 600; color: #d32f2f; font-size: 1.1rem; margin-bottom: 12px;">
+          ⚠️ Before filling the form, please be sure you’re available with the money to collect your package when delivered in 2–3 days.
+        </p>
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 15px;">
+          <div style="display: flex; align-items: center; gap: 6px; font-weight: 700; color: #25D366;">
+            <i class="fas fa-shield-alt"></i> PAYMENT ON DELIVERY
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; font-weight: 700; color: var(--primary);">
+            <i class="fas fa-truck"></i> FAST & FREE DELIVERY
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Form -->
+      <div style="max-width: 680px; margin: 0 auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+        <iframe 
+          src="https://docs.google.com/forms/d/e/1FAIpQLSdfoGOkdeFhVt_8JPWQ78BOBiY1IkSo0wS_SsmnL9ICMqOsMQ/viewform?embedded=true" 
+          width="100%" 
+          height="1410" 
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0"
+          style="border: none; max-width: 100%;">
+          Loading…
+        </iframe>
+      </div>
+    </div>
+  </div>
 
   <!-- FAQ -->
   <section class="faq">
@@ -504,6 +539,14 @@
       currentIndex = (currentIndex + 1) % totalItems;
       updateCarousel();
     }, 5000);
+
+    // Reveal form on CTA click
+    document.getElementById('reveal-form-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      const formSection = document.getElementById('order-form-section');
+      formSection.style.display = 'block';
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   </script>
 </body>
 </html>

@@ -36,11 +36,22 @@
     .timer-unit{background:var(--primary);color:#fff;padding:10px 0;border-radius:8px;min-width:55px;font-weight:700}
     .timer-label{display:block;font-size:0.7rem;margin-top:4px;opacity:0.9}
     
-    /* Video Section */
-    .video-section{padding:50px 0;background:#fff;text-align:center}
-    .video-container{max-width:800px;margin:0 auto;background:#000;border-radius:12px;overflow:hidden}
-    .video-placeholder{position:relative;padding-bottom:56.25%;height:0}
-    .video-placeholder iframe{position:absolute;top:0;left:0;width:100%;height:100%}
+    /* Stock Counter */
+    .stock-counter{background:#f8f9fa;border:1px solid #dee2e6;border-radius:8px;padding:12px 20px;margin:15px auto;max-width:400px;text-align:center;font-weight:700;color:#212529}
+    .stock-counter span{color:var(--danger);font-size:1.2rem}
+    
+    /* Product Carousel */
+    .carousel-section{padding:40px 0;background:#fff}
+    .carousel-container{max-width:800px;margin:0 auto;position:relative;overflow:hidden;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.08)}
+    .carousel-inner{display:flex;transition:transform 0.5s ease;will-change:transform}
+    .carousel-item{flex:0 0 100%;height:400px;position:relative}
+    .carousel-item img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+    .carousel-controls{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 20px}
+    .carousel-btn{background:rgba(255,255,255,0.8);color:var(--dark);border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(5px)}
+    .carousel-btn:hover{background:rgba(255,255,255,1)}
+    .carousel-dots{display:flex;justify-content:center;margin-top:15px;gap:8px}
+    .dot{width:10px;height:10px;background:#ccc;border-radius:50%;cursor:pointer}
+    .dot.active{background:var(--primary)}
     
     /* Specs Table */
     .specs-section{padding:50px 0;background:#fff}
@@ -75,18 +86,6 @@
     .free-gifts{background:#f0e6ff;display:inline-block;padding:10px 20px;border-radius:8px;margin:20px 0;font-weight:600}
     .free-gifts i{color:var(--primary);margin-right:6px}
     
-    /* Order Form */
-    .order-section{padding:60px 0;background:#fff}
-    .form-container{max-width:600px;margin:0 auto;background:#fff;padding:25px;border:1px solid #eee;border-radius:12px}
-    .form-title{font-size:1.7rem;color:var(--dark);margin-bottom:15px;text-align:center}
-    .form-note{text-align:center;color:#6c757d;margin-bottom:20px;font-style:italic}
-    .order-form{display:flex;flex-direction:column;gap:18px}
-    .form-group label{display:block;margin-bottom:6px;font-weight:700}
-    .form-group input,.form-group textarea{width:100%;padding:12px;border:1px solid #ced4da;border-radius:8px;font-size:1rem}
-    .form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(111,8,244,0.15)}
-    .cta-button{background:var(--primary);color:#fff;border:none;padding:15px;font-size:1.2rem;font-weight:700;border-radius:8px;cursor:pointer;margin-top:10px;font-family:inherit}
-    .cta-button:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(111,8,244,0.4)}
-    
     /* WhatsApp Button */
     .whatsapp-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 20px;border-radius:8px;font-weight:700;margin:15px 0}
     .whatsapp-btn i{font-size:1.2rem}
@@ -95,6 +94,8 @@
     .final-cta{padding:50px 0;background:#fff;text-align:center}
     .final-cta h2{font-size:1.7rem;color:var(--dark);margin-bottom:20px}
     .final-cta p{max-width:700px;margin:0 auto 25px;color:#6c757d}
+    .cta-button{background:var(--primary);color:#fff;border:none;padding:15px;font-size:1.2rem;font-weight:700;border-radius:8px;cursor:pointer;margin-top:10px;font-family:inherit}
+    .cta-button:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(111,8,244,0.4)}
     
     /* FAQ */
     .faq{padding:50px 0;background:#fff}
@@ -114,11 +115,13 @@
       .hero h1{font-size:1.8rem}
       .package-options{flex-direction:column;align-items:center}
       .timer-unit{min-width:45px;padding:8px 0;font-size:1rem}
+      .carousel-item{height:300px}
     }
     @media (max-width:480px){
       .hero h1{font-size:1.6rem}
       .timer{gap:6px}
       .timer-unit{min-width:40px}
+      .carousel-item{height:250px}
     }
   </style>
 </head>
@@ -157,6 +160,47 @@
             <span id="seconds">00</span>
             <span class="timer-label">SEC</span>
           </div>
+        </div>
+      </div>
+
+      <div class="stock-counter">
+        ⏳ <span>Only 17 Left!</span> — Limited stock due to high demand
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Carousel -->
+  <section class="carousel-section">
+    <div class="container">
+      <h2 class="section-title"><span style="color:var(--dark)">SEE IT IN ACTION</span></h2>
+      <div class="carousel-container">
+        <div class="carousel-inner" id="carousel-inner">
+          <!-- Image 1 -->
+          <div class="carousel-item">
+            <img src="https://via.placeholder.com/800x400/1a0047/ffffff?text=Projector+in+Living+Room" alt="Projector in Living Room">
+          </div>
+          <!-- Image 2 -->
+          <div class="carousel-item">
+            <img src="https://via.placeholder.com/800x400/6F08F4/ffffff?text=Netflix+on+Wall" alt="Netflix on Wall">
+          </div>
+          <!-- Image 3 -->
+          <div class="carousel-item">
+            <img src="https://via.placeholder.com/800x400/1a0047/ffffff?text=Auto+Focus+Demo" alt="Auto Focus Demo">
+          </div>
+          <!-- Image 4 -->
+          <div class="carousel-item">
+            <img src="https://via.placeholder.com/800x400/6F08F4/ffffff?text=Portable+Design" alt="Portable Design">
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="prev-btn">‹</button>
+          <button class="carousel-btn" id="next-btn">›</button>
+        </div>
+        <div class="carousel-dots" id="carousel-dots">
+          <div class="dot active" data-index="0"></div>
+          <div class="dot" data-index="1"></div>
+          <div class="dot" data-index="2"></div>
+          <div class="dot" data-index="3"></div>
         </div>
       </div>
     </div>
@@ -281,39 +325,9 @@
         <i class="fas fa-gift"></i> FREE Bluetooth Remote | FREE HDMI Cable | FREE Carrying Case | FREE DELIVERY
       </div>
       <div style="margin-top:15px">
-        <a href="https://wa.me/2348123456789?text=Hi%20Kendo%20Store,%20I%20want%20to%20order%20the%20Smart%20Projector!" class="whatsapp-btn" target="_blank">
+        <a href="https://wa.me/2348108577500?text=Hi%20Kendo%20Store,%20I%20want%20to%20order%20the%20Smart%20Projector!" class="whatsapp-btn" target="_blank">
           <i class="fab fa-whatsapp"></i> ORDER VIA WHATSAPP
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Order Form -->
-  <section class="order-section" id="order">
-    <div class="container">
-      <div class="form-container">
-        <h2 class="form-title">FILL OUT THE FORM BELOW With Your Correct Details</h2>
-        <p class="form-note">And you’re available with the money to collect your package when delivered in 1–2 days.</p>
-        <form class="order-form">
-          <div class="form-group">
-            <label for="fullname">Full Name</label>
-            <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="08012345678" required>
-          </div>
-          <div class="form-group">
-            <label for="address">Full Address</label>
-            <textarea id="address" name="address" rows="3" placeholder="House number, street, area, city, state" required></textarea>
-          </div>
-          <button type="submit" class="cta-button">PLACE YOUR ORDER NOW!</button>
-        </form>
-        <div style="text-align:center;margin-top:20px">
-          <a href="https://wa.me/2348123456789?text=Hi%20Kendo%20Store,%20I%20want%20to%20order%20the%20Smart%20Projector!" class="whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> OR ORDER VIA WHATSAPP
-          </a>
-        </div>
       </div>
     </div>
   </section>
@@ -323,7 +337,9 @@
     <div class="container">
       <h2>Don’t Wait for Regret</h2>
       <p>Every day you delay, you miss out on family movie nights, football matches in stadium-size glory, and peace of mind. This isn’t just a projector—it’s your ticket to a better home entertainment experience.</p>
-      <a href="#order" class="cta-button">ORDER NOW BEFORE DISCOUNT EXPIRES!</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd1X0lMC_3GDlb0qmfbZopcxyx_hEVAaDA7qZrDjd1suJbjkA/viewform?usp=header" class="cta-button" target="_blank">
+        ORDER NOW BEFORE DISCOUNT EXPIRES!
+      </a>
     </div>
   </section>
 
@@ -359,7 +375,7 @@
 
   <!-- Floating WhatsApp Button -->
   <div class="floating-whatsapp">
-    <a href="https://wa.me/2348123456789?text=Hi%20Kendo%20Store,%20I%20want%20to%20order%20the%20Smart%20Projector!" target="_blank">
+    <a href="https://wa.me/2348108577500?text=Hi%20Kendo%20Store,%20I%20want%20to%20order%20the%20Smart%20Projector!" target="_blank">
       <i class="fab fa-whatsapp"></i>
     </a>
   </div>
@@ -392,6 +408,51 @@
         btn.classList.add('active');
       });
     });
+
+    // Carousel Logic
+    const carouselInner = document.getElementById('carousel-inner');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    let currentIndex = 0;
+    const totalItems = document.querySelectorAll('.carousel-item').length;
+
+    function updateCarousel() {
+      carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        currentIndex = parseInt(dot.getAttribute('data-index'));
+        updateCarousel();
+      });
+    });
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+      updateCarousel();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalItems;
+      updateCarousel();
+    });
+
+    // Auto-rotate every 5 seconds
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalItems;
+      updateCarousel();
+    }, 5000);
+
+    // Stock counter animation (optional)
+    let stock = 17;
+    const stockCounter = document.querySelector('.stock-counter span');
+    if (stock <= 5) {
+      stockCounter.style.color = '#dc3545';
+    }
   </script>
 </body>
 </html>

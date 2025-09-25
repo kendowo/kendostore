@@ -22,7 +22,8 @@
     
     /* Hero */
     .hero{padding:60px 0;text-align:center;background:#fff}
-    .hero h1{font-size:2.2rem;color:var(--dark);margin:0 0 20px}
+    .headline-urgent{font-size:2.2rem;color:var(--dark);margin:0 0 20px;text-align:center;font-weight:800;line-height:1.3;animation:pulse-headline 2.5s infinite}
+    @keyframes pulse-headline{0%{text-shadow:0 0 0 rgba(111,8,244,0.4)}70%{text-shadow:0 0 20px rgba(111,8,244,0.6)}100%{text-shadow:0 0 0 rgba(111,8,244,0)}}
     .hero p{font-size:1.15rem;color:#6c757d;margin-bottom:25px}
     .highlight{color:var(--primary);font-weight:700}
     
@@ -127,13 +128,13 @@
     
     /* Responsive */
     @media (max-width:768px){
-      .hero h1{font-size:1.8rem}
+      .headline-urgent{font-size:1.8rem}
       .carousel-item{height:300px}
       .package-options{flex-direction:column;align-items:center}
       .timer-unit{min-width:45px;padding:8px 0;font-size:1rem}
     }
     @media (max-width:480px){
-      .hero h1{font-size:1.6rem}
+      .headline-urgent{font-size:1.6rem}
       .carousel-item{height:250px}
       .timer{gap:6px}
       .timer-unit{min-width:40px}
@@ -151,7 +152,7 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <h1>Big Screen Entertainment Without Breaking the Bank</h1>
+      <h1 class="headline-urgent">Big Screen Entertainment Without Breaking the Bank</h1>
       <p>In 2025, you no longer need to spend ₦200,000+ on a Smart TV. The <span class="highlight">Kendo Smart Android Projector</span> gives you a massive 100-inch cinema experience at a fraction of the cost.</p>
 
       <div class="price-display">
@@ -410,36 +411,67 @@
     </div>
   </section>
 
-  <!-- Embedded Google Form Section (Hidden Until Clicked) -->
+  <!-- VilleSec-Style Netlify Form with Optional Email -->
   <div id="order-form-section" style="display: none; padding: 50px 0; background: #f9f7ff;">
     <div class="container">
-      <!-- Reassurance Note + Trust Badges -->
-      <div style="max-width: 600px; margin: 0 auto 30px; text-align: center; background: white; padding: 20px; border-radius: 12px; border: 1px solid #eee;">
-        <p style="font-weight: 600; color: #d32f2f; font-size: 1.1rem; margin-bottom: 12px;">
-          ⚠️ Before filling the form, please be sure you’re available with the money to collect your package when delivered in 2–3 days.
+      <div style="max-width: 600px; margin: 0 auto; background: white; padding: 30px; border: 1px solid #eee; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+        <h2 style="font-size: 1.7rem; color: #1A0047; margin-bottom: 15px; text-align: center; font-weight: 800;">
+          FILL OUT THE FORM BELOW With Your Correct Details
+        </h2>
+        <p style="text-align: center; color: #6c757d; font-style: italic; margin-bottom: 25px;">
+          And you’re available with the money to collect your package when delivered in 1–2 days.
         </p>
-        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 15px;">
-          <div style="display: flex; align-items: center; gap: 6px; font-weight: 700; color: #25D366;">
-            <i class="fas fa-shield-alt"></i> PAYMENT ON DELIVERY
+
+        <form name="kendo-projector-order" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="bot-field" />
+          <input type="hidden" name="form-name" value="kendo-projector-order" />
+
+          <div style="margin-bottom: 20px;">
+            <label for="fullname" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required
+                   style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit;">
           </div>
-          <div style="display: flex; align-items: center; gap: 6px; font-weight: 700; color: var(--primary);">
-            <i class="fas fa-truck"></i> FAST & FREE DELIVERY
+
+          <div style="margin-bottom: 20px;">
+            <label for="phone" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="08012345678" required
+                   style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit;">
           </div>
-        </div>
+
+          <div style="margin-bottom: 20px;">
+            <label for="email" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">
+              Email Address <span style="color: #6c757d; font-weight: normal;">(Optional)</span>
+            </label>
+            <input type="email" id="email" name="email" placeholder="yourname@email.com"
+                   style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit;">
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <label for="address" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">Full Address</label>
+            <textarea id="address" name="address" rows="3" 
+                      placeholder="House number, street, area, city, state (e.g., 15 Adeola St, Ikeja, Lagos)" required
+                      style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit;"></textarea>
+          </div>
+
+          <input type="hidden" name="selected-package" id="selected-package-input" value="OPTION 1">
+
+          <button type="submit" 
+                  style="background: #6F08F4; color: white; border: none; padding: 16px; width: 100%; font-size: 1.2rem; font-weight: 700; border-radius: 8px; cursor: pointer; font-family: inherit; box-shadow: 0 4px 12px rgba(111, 8, 244, 0.3);">
+            PLACE YOUR ORDER NOW!
+          </button>
+        </form>
       </div>
 
-      <!-- Google Form -->
-      <div style="max-width: 680px; margin: 0 auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-        <iframe 
-          src="https://docs.google.com/forms/d/e/1FAIpQLSdfoGOkdeFhVt_8JPWQ78BOBiY1IkSo0wS_SsmnL9ICMqOsMQ/viewform?embedded=true" 
-          width="100%" 
-          height="1410" 
-          frameborder="0" 
-          marginheight="0" 
-          marginwidth="0"
-          style="border: none; max-width: 100%;">
-          Loading…
-        </iframe>
+      <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 25px;">
+        <div style="display: flex; align-items: center; gap: 6px; font-weight: 700; color: #25D366;">
+          <i class="fas fa-shield-alt"></i> PAYMENT ON DELIVERY
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px; font-weight: 700; color: #6F08F4;">
+          <i class="fas fa-truck"></i> FAST & FREE DELIVERY
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px; font-weight: 700; color: #6F08F4;">
+          <i class="fas fa-sync-alt"></i> 6 MONTHS WARRANTY
+        </div>
       </div>
     </div>
   </div>
@@ -540,12 +572,23 @@
       updateCarousel();
     }, 5000);
 
+    // Package selection
+    let selectedPackage = "OPTION 1";
+    document.querySelectorAll('.package-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        selectedPackage = this.textContent.trim();
+        document.getElementById('selected-package-input').value = selectedPackage;
+        // Update all buttons
+        document.querySelectorAll('.package-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
     // Reveal form on CTA click
     document.getElementById('reveal-form-btn').addEventListener('click', function(e) {
       e.preventDefault();
-      const formSection = document.getElementById('order-form-section');
-      formSection.style.display = 'block';
-      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.getElementById('order-form-section').style.display = 'block';
+      document.getElementById('order-form-section').scrollIntoView({ behavior: 'smooth' });
     });
   </script>
 </body>

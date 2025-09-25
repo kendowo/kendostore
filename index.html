@@ -68,11 +68,13 @@
     .specs-table tr:last-child td{border-bottom:none}
     .specs-table tr:nth-child(even){background:#faf9ff}
     
-    /* Benefits */
+    /* Benefits - Larger Text */
     .problem-section{padding:50px 0;background:#fff;text-align:center}
-    .problem-list{max-width:700px;margin:25px auto;padding:0 20px;text-align:left}
-    .problem-list li{margin-bottom:12px;color:#6c757d}
-    .problem-list strong{color:var(--dark)}
+    .problem-section h2{font-size:2.2rem;color:var(--dark);margin-bottom:20px;font-weight:800;}
+    .problem-list-container{max-width:700px;margin:0 auto;padding:25px;background:#f9f7ff;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.05);}
+    .problem-list{font-size:1.1rem;line-height:1.6;color:#6c757d;padding-left:20px;text-align:left;}
+    .problem-list li{margin-bottom:20px;}
+    .problem-list strong{color:var(--primary);}
     
     /* Real Testimonials */
     .testimonials{padding:50px 0;background:#fff}
@@ -85,7 +87,7 @@
     .testimonial-author{font-weight:700;color:var(--primary);font-size:0.95rem}
     
     /* Packages Section */
-    .packages{padding:50px 0;background:#fff}
+    .packages{padding:50px 0;background:#fff;text-align:center}
     .package-options{display:flex;justify-content:center;flex-wrap:wrap;gap:20px;margin:30px 0}
     .package-card{background:#fff;border:2px solid #ddd;border-radius:12px;padding:25px;text-align:center;max-width:300px;box-shadow:0 5px 15px rgba(0,0,0,0.05);transition:transform 0.3s}
     .package-card:hover{transform:translateY(-5px);box-shadow:0 8px 25px rgba(0,0,0,0.1)}
@@ -96,9 +98,11 @@
     .package-btn{background:white;border:2px solid var(--primary);color:var(--primary);padding:12px 25px;font-size:1.1rem;font-weight:700;border-radius:8px;cursor:pointer;width:100%;transition:all 0.3s}
     .package-btn:hover{background:var(--primary);color:white}
     
-    /* Free Gifts & WhatsApp */
+    /* Free Gifts */
     .free-gifts{background:#f0e6ff;display:inline-block;padding:10px 20px;border-radius:8px;margin:20px 0;font-weight:600}
     .free-gifts i{color:var(--primary);margin-right:6px}
+    
+    /* WhatsApp Button */
     .whatsapp-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 20px;border-radius:8px;font-weight:700;margin:15px 0}
     .whatsapp-btn i{font-size:1.2rem}
     
@@ -285,15 +289,17 @@
     </div>
   </section>
 
-  <!-- Benefits -->
+  <!-- Benefits - Larger Text -->
   <section class="problem-section">
     <div class="container">
       <h2>Why You Need This Projector NOW:</h2>
-      <ul class="problem-list">
-        <li><strong>Parents:</strong> Tired of replacing broken TV screens? Kids can’t break a projected image!</li>
-        <li><strong>Football Fans:</strong> Watch every match in 100-inch glory—no expensive subscriptions!</li>
-        <li><strong>Students & Renters:</strong> Portable, compact, and ready to move with you.</li>
-      </ul>
+      <div class="problem-list-container">
+        <ul class="problem-list">
+          <li><strong>Parents:</strong> Tired of replacing broken TV screens? Kids can’t break a projected image!</li>
+          <li><strong>Football Fans:</strong> Watch every match in 100-inch glory—no expensive subscriptions!</li>
+          <li><strong>Students & Renters:</strong> Portable, compact, and ready to move with you.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -389,7 +395,11 @@
       </div>
 
       <div class="free-gifts">
-        <i class="fas fa-gift"></i> FREE Bluetooth Remote | FREE HDMI Cable | FREE Carrying Case | FREE DELIVERY
+        <i class="fas fa-gift"></i> FREE Bluetooth Remote | FREE HDMI Cable | FREE DELIVERY
+      </div>
+
+      <div style="margin-top:10px; text-align:center; font-weight:700; color:#6F08F4; font-size:0.95rem;">
+        <i class="fas fa-sync-alt"></i> 3 MONTHS WARRANTY
       </div>
 
       <div style="margin-top:15px">
@@ -411,15 +421,24 @@
     </div>
   </section>
 
-  <!-- VilleSec-Style Netlify Form with Optional Email -->
+  <!-- VilleSec-Style Netlify Form -->
   <div id="order-form-section" style="display: none; padding: 50px 0; background: #f9f7ff;">
     <div class="container">
+      <!-- Urgent Red Note -->
+      <div style="max-width: 600px; margin: 0 auto 25px; background: white; padding: 20px; border: 3px solid #e53935; border-radius: 12px; box-shadow: 0 4px 12px rgba(229,57,53,0.2);">
+        <p style="font-weight: 700; color: #e53935; font-size: 1.1rem; margin: 0; line-height: 1.5;">
+          <strong>NOTE:</strong> Before Placing This Order, Please Ensure You Verify The Price Listed There.<br><br>
+          And you’re available with the money to collect your package when delivered in 1–2 days.
+        </p>
+      </div>
+
+      <!-- Form Container -->
       <div style="max-width: 600px; margin: 0 auto; background: white; padding: 30px; border: 1px solid #eee; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
         <h2 style="font-size: 1.7rem; color: #1A0047; margin-bottom: 15px; text-align: center; font-weight: 800;">
-          FILL OUT THE FORM BELOW With Your Correct Details
+          Please Fill The Form Below To Place Your Order
         </h2>
-        <p style="text-align: center; color: #6c757d; font-style: italic; margin-bottom: 25px;">
-          And you’re available with the money to collect your package when delivered in 1–2 days.
+        <p style="text-align: center; color: #6c757d; font-weight: 700; margin-bottom: 25px;">
+          Only Serious Buyers Should Fill The Form Below
         </p>
 
         <form name="kendo-projector-order" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
@@ -427,41 +446,92 @@
           <input type="hidden" name="form-name" value="kendo-projector-order" />
 
           <div style="margin-bottom: 20px;">
-            <label for="fullname" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">Full Name</label>
-            <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required
-                   style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit;">
+            <label for="package" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">Select your package *</label>
+            <select id="package" name="package" required style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit; background: white;">
+              <option value="" disabled selected>Select your package</option>
+              <option value="OPTION 1">OPTION 1: Projector Only - ₦315,000</option>
+              <option value="OPTION 2">OPTION 2: Projector + Anti-Glare Curtain - ₦365,000</option>
+              <option value="OPTION 3">OPTION 3: Projector + Anti-Glare Curtain + Tripod Stand - ₦399,000</option>
+            </select>
           </div>
 
           <div style="margin-bottom: 20px;">
-            <label for="phone" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="08012345678" required
-                   style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit;">
+            <label for="fullname" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">Your Name *</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit;">
           </div>
 
           <div style="margin-bottom: 20px;">
-            <label for="email" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">
-              Email Address <span style="color: #6c757d; font-weight: normal;">(Optional)</span>
-            </label>
-            <input type="email" id="email" name="email" placeholder="yourname@email.com"
-                   style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit;">
+            <label for="phone" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">Your Phone Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="08012345678" required style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit;">
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <label for="whatsapp" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">Your WhatsApp Number *</label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="08012345678" required style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit;">
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <label for="email" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">Your Email Address <span style="color: #6c757d; font-weight: normal;">(Optional)</span></label>
+            <input type="email" id="email" name="email" placeholder="yourname@email.com" style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit;">
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <label for="state" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">Your Delivery State *</label>
+            <select id="state" name="state" required style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit; background: white;">
+              <option value="" disabled selected>Select your state</option>
+              <option value="Lagos">Lagos</option>
+              <option value="Abuja">Abuja</option>
+              <option value="Rivers">Rivers</option>
+              <option value="Abia">Abia</option>
+              <option value="Adamawa">Adamawa</option>
+              <option value="Akwa Ibom">Akwa Ibom</option>
+              <option value="Anambra">Anambra</option>
+              <option value="Bauchi">Bauchi</option>
+              <option value="Bayelsa">Bayelsa</option>
+              <option value="Benue">Benue</option>
+              <option value="Borno">Borno</option>
+              <option value="Cross River">Cross River</option>
+              <option value="Delta">Delta</option>
+              <option value="Ebonyi">Ebonyi</option>
+              <option value="Edo">Edo</option>
+              <option value="Ekiti">Ekiti</option>
+              <option value="Enugu">Enugu</option>
+              <option value="Gombe">Gombe</option>
+              <option value="Imo">Imo</option>
+              <option value="Jigawa">Jigawa</option>
+              <option value="Kaduna">Kaduna</option>
+              <option value="Kano">Kano</option>
+              <option value="Katsina">Katsina</option>
+              <option value="Kebbi">Kebbi</option>
+              <option value="Kogi">Kogi</option>
+              <option value="Kwara">Kwara</option>
+              <option value="Nasarawa">Nasarawa</option>
+              <option value="Niger">Niger</option>
+              <option value="Ogun">Ogun</option>
+              <option value="Ondo">Ondo</option>
+              <option value="Osun">Osun</option>
+              <option value="Oyo">Oyo</option>
+              <option value="Plateau">Plateau</option>
+              <option value="Sokoto">Sokoto</option>
+              <option value="Taraba">Taraba</option>
+              <option value="Yobe">Yobe</option>
+              <option value="Zamfara">Zamfara</option>
+              <option value="FCT Abuja">FCT Abuja</option>
+            </select>
           </div>
 
           <div style="margin-bottom: 25px;">
-            <label for="address" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">Full Address</label>
-            <textarea id="address" name="address" rows="3" 
-                      placeholder="House number, street, area, city, state (e.g., 15 Adeola St, Ikeja, Lagos)" required
-                      style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit;"></textarea>
+            <label for="address" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">Full Delivery Address *</label>
+            <textarea id="address" name="address" rows="3" placeholder="House number, street, area, city" required style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit;"></textarea>
           </div>
 
-          <input type="hidden" name="selected-package" id="selected-package-input" value="OPTION 1">
-
-          <button type="submit" 
-                  style="background: #6F08F4; color: white; border: none; padding: 16px; width: 100%; font-size: 1.2rem; font-weight: 700; border-radius: 8px; cursor: pointer; font-family: inherit; box-shadow: 0 4px 12px rgba(111, 8, 244, 0.3);">
+          <button type="submit" style="background: #6F08F4; color: white; border: none; padding: 16px; width: 100%; font-size: 1.2rem; font-weight: 700; border-radius: 8px; cursor: pointer; font-family: inherit; box-shadow: 0 4px 12px rgba(111, 8, 244, 0.3);">
             PLACE YOUR ORDER NOW!
           </button>
         </form>
       </div>
 
+      <!-- Trust Badges -->
       <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 25px;">
         <div style="display: flex; align-items: center; gap: 6px; font-weight: 700; color: #25D366;">
           <i class="fas fa-shield-alt"></i> PAYMENT ON DELIVERY
@@ -470,7 +540,7 @@
           <i class="fas fa-truck"></i> FAST & FREE DELIVERY
         </div>
         <div style="display: flex; align-items: center; gap: 6px; font-weight: 700; color: #6F08F4;">
-          <i class="fas fa-sync-alt"></i> 6 MONTHS WARRANTY
+          <i class="fas fa-sync-alt"></i> 3 MONTHS WARRANTY
         </div>
       </div>
     </div>
@@ -577,8 +647,6 @@
     document.querySelectorAll('.package-btn').forEach(btn => {
       btn.addEventListener('click', function() {
         selectedPackage = this.textContent.trim();
-        document.getElementById('selected-package-input').value = selectedPackage;
-        // Update all buttons
         document.querySelectorAll('.package-btn').forEach(b => b.classList.remove('active'));
         this.classList.add('active');
       });

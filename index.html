@@ -591,7 +591,7 @@
   </div>
 
   <script>
-    // Persistent 8-hour timer
+    // Persistent 6-hour timer
     function updateCountdown() {
       const now = Date.now();
       let end = localStorage.getItem('kendo_timer');
@@ -665,6 +665,13 @@
       document.getElementById('order-form-section').style.display = 'block';
       document.getElementById('order-form-section').scrollIntoView({ behavior: 'smooth' });
     });
+    
+    // Make second button reveal the form too
+document.getElementById('reveal-form-btn-2').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('order-form-section').style.display = 'block';
+  document.getElementById('order-form-section').scrollIntoView({ behavior: 'smooth' });
+});
   </script>
 </body>
 </html>

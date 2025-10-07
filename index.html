@@ -16,24 +16,12 @@
     a{text-decoration:none;color:inherit}
     
     /* Make Videos Bigger */
-.video-container iframe {
-  width: 100%;
-  height: 600px; /* 👈 Increase this number if you want taller videos */
-  border: none;
-  border-radius: 12px;
-}
-
-/* Optional: Make buttons bigger too */
-.play-pause-btn,
-.mute-unmute-btn {
-  width: 50px;
-  height: 50px;
-  font-size: 1.3rem;
-  bottom: 15px;
-}
-
-.play-pause-btn { left: 15px; }
-.mute-unmute-btn { right: 15px; }
+    .video-container iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 12px;
+    }
     
     /* Header */
     header{padding:15px 0;background:#fff;border-bottom:1px solid #eee}
@@ -187,27 +175,6 @@
     .floating-whatsapp{position:fixed;bottom:20px;right:20px;z-index:1000}
     .floating-whatsapp a{display:flex;align-items:center;justify-content:center;width:60px;height:60px;background:#25D366;color:#fff;font-size:1.5rem;border-radius:50%;box-shadow:0 4px 12px rgba(37,211,102,0.4)}
     
-    /* Video Controls */
-    .play-pause-btn,
-    .mute-unmute-btn {
-      position: absolute;
-      bottom: 10px;
-      background: rgba(255,255,255,0.8);
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .play-pause-btn:hover,
-    .mute-unmute-btn:hover {
-      background: white;
-    }
-    .play-pause-btn { left: 10px; }
-    .mute-unmute-btn { right: 10px; }
-
     /* Video Headers */
     .video-section h2 {
       font-size: 1.5rem;
@@ -233,11 +200,21 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- Header with SVG Logo -->
   <header>
     <div class="container">
       <div class="logo-container">
-        <img src="images/kendo-store-logo.png" alt="Kendo Store" class="logo">
+        <!-- Inline SVG Logo -->
+        <svg class="logo" width="200" height="150" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+          <!-- Purple trapezoid shape -->
+          <path d="M80,40 L120,40 L110,80 L90,80 Z" fill="#6F08F4" />
+          <!-- White symbol inside -->
+          <path d="M95,50 C97,50 99,52 99,54 C99,56 97,58 95,58 C93,58 91,56 91,54 C91,52 93,50 95,50 Z M95,58 C97,58 99,60 99,62 C99,64 97,66 95,66 C93,66 91,64 91,62 C91,60 93,58 95,58 Z" fill="white" />
+          <!-- KENDO text -->
+          <text x="100" y="105" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="bold" fill="#2E0060" text-anchor="middle">KENDO</text>
+          <!-- STORE text -->
+          <text x="100" y="130" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#2E0060" text-anchor="middle">STORE</text>
+        </svg>
       </div>
     </div>
   </header>
@@ -320,63 +297,53 @@
     </div>
   </section>
 
-  <!-- Video Section 1 -->
+  <!-- Video Section 1 - FIXED -->
   <section class="video-section">
-  <div class="container">
-    <h2>TAKE A LOOK AT THE IMAGE QUALITY PROJECTING DIRECTLY TO WALL!</h2>
-    <div class="video-container">
-      <iframe 
-        d="video1"
-  src="https://www.youtube.com/embed/wVb_X_Xe_Qs?autoplay=0&mute=1&loop=1&playlist=wVb_X_Xe_Qs&playsinline=1&controls=0&rel=0&showinfo=0" 
-  frameborder="0" 
-  allow="accelerometer;autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen>
-</iframe>
-      </iframe>
-      <button class="play-pause-btn"data-video="video1">▶️</button>
-      <button class="mute-unmute-btn"data-video="video1">🔇</button>
+    <div class="container">
+      <h2>TAKE A LOOK AT THE IMAGE QUALITY PROJECTING DIRECTLY TO WALL!</h2>
+      <div class="video-container">
+        <iframe 
+          src="https://www.youtube.com/embed/wVb_X_Xe_Qs?rel=0&showinfo=0" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p style="margin-top:20px;color:#6c757d">See top notch image quality it support 4k resolution!</p>
     </div>
-    <p style="margin-top:20px;color:#6c757d">See top notch image quality it support 4k resolution!</p>
-  </div>
-</section>
+  </section>
 
-  <!-- Video Section 2 -->
- <section class="video-section">
-  <div class="container">
-    <h2>HOW IT LOOKS IN A BRIGHT ROOM</h2>
-    <div class="video-container">
-     <iframe 
-       d="video2"
-  src="https://www.youtube.com/embed/pIaTp-fmvwk?autoplay=0&mute=1&loop=1&playlist=pIaTp-fmvwk&playsinline=1&controls=0&rel=0&showinfo=0" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen>
-</iframe>
-      <button class="play-pause-btn" data-video="video2">▶️</button>
-      <button class="mute-unmute-btn" data-video="video2">🔇</button>
+  <!-- Video Section 2 - FIXED -->
+  <section class="video-section">
+    <div class="container">
+      <h2>HOW IT LOOKS IN A BRIGHT ROOM</h2>
+      <div class="video-container">
+        <iframe 
+          src="https://www.youtube.com/embed/pIaTp-fmvwk?rel=0&showinfo=0" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p style="margin-top:20px;color:#6c757d">WATCH THE IMAGE QUALITY IN A BRIGHT ROOM!</p>
     </div>
-    <p style="margin-top:20px;color:#6c757d">WATCH THE IMAGE QUALITY IN A BRIGHT ROOM!</p>
-  </div>
-</section>
+  </section>
 
-  <!-- Video Section 3 -->
- <section class="video-section">
-  <div class="container">
-    <h2>WITH GREAT SOUND!</h2>
-    <div class="video-container">
-     <iframe 
-       d="video3"
-  src="https://www.youtube.com/embed/1p_GuBuUCWc?autoplay=0&mute=1&loop=1&playlist=1p_GuBuUCWc&playsinline=1&controls=0&rel=0&showinfo=0" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen>
-</iframe>
-      <button class="play-pause-btn" data-video="video3">▶️</button>
-      <button class="mute-unmute-btn" data-video="video3">🔇</button>
+  <!-- Video Section 3 - FIXED -->
+  <section class="video-section">
+    <div class="container">
+      <h2>WITH GREAT SOUND!</h2>
+      <div class="video-container">
+        <iframe 
+          src="https://www.youtube.com/embed/1p_GuBuUCWc?rel=0&showinfo=0" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p style="margin-top:20px;color:#6c757d">Experience immersive audio that brings movies and music to life!</p>
     </div>
-     <p style="margin-top:20px;color:#6c757d">Experience immersive audio that brings movies and music to life!</p>
-    </div>
-</section>
+  </section>
   
   <!-- Second CTA Button -->
   <section class="second-cta">
@@ -773,7 +740,7 @@
       });
     });
 
-   // Reveal form on CTA click
+    // Reveal form on CTA click
     document.getElementById('reveal-form-btn').addEventListener('click', function(e) {
       e.preventDefault();
       document.getElementById('order-form-section').style.display = 'block';
@@ -781,87 +748,11 @@
     });
     
     // Make second button reveal the form too
-document.getElementById('reveal-form-btn-2').addEventListener('click', function(e) {
-  e.preventDefault();
-  document.getElementById('order-form-section').style.display = 'block';
-  document.getElementById('order-form-section').scrollIntoView({ behavior: 'smooth' });
-});
-  // Video Autoplay on Scroll
-const videoContainers = document.querySelectorAll('.video-container');
-let playingVideos = new Set();
-
-function isInViewport(el) {
-  const rect = el.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
-}
-
-function playVideo(videoId) {
-  if (!playingVideos.has(videoId)) {
-    document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-    playingVideos.add(videoId);
-  }
-}
-
-window.addEventListener('scroll', () => {
-  videoContainers.forEach(container => {
-    const iframe = container.querySelector('iframe');
-    if (iframe && isInViewport(container)) {
-      playVideo(iframe.id);
-    }
-  });
-});
-
-window.addEventListener('load', () => {
-  videoContainers.forEach(container => {
-    const iframe = container.querySelector('iframe');
-    if (iframe && isInViewport(container)) {
-      playVideo(iframe.id);
-    }
-  });
-});
-    window.addEventListener('load', () => {
-      videoContainers.forEach(container => {
-        const iframe = container.querySelector('iframe');
-        if (iframe && isInViewport(container)) {
-          playVideo(iframe.id);
-        }
-      });
+    document.getElementById('reveal-form-btn-2').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('order-form-section').style.display = 'block';
+      document.getElementById('order-form-section').scrollIntoView({ behavior: 'smooth' });
     });
-
-  // Play/Pause Toggle
-document.querySelectorAll('.play-pause-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const videoId = btn.dataset.video;
-    const isPlaying = btn.textContent === '⏸️';
-    if (isPlaying) {
-      document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-      btn.textContent = '▶️';
-    } else {
-      document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-      btn.textContent = '⏸️';
-    }
-  });
-});
-
-// Mute/Unmute Toggle
-document.querySelectorAll('.mute-unmute-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const videoId = btn.dataset.video;
-    const isMuted = btn.textContent === '🔇';
-    if (isMuted) {
-      document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
-      btn.textContent = '🔊';
-    } else {
-      document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
-      btn.textContent = '🔇';
-    }
-  });
-});
   </script>
 </body>
 </html>

@@ -784,36 +784,44 @@ document.getElementById('reveal-form-btn-2').addEventListener('click', function(
   document.getElementById('order-form-section').style.display = 'block';
   document.getElementById('order-form-section').scrollIntoView({ behavior: 'smooth' });
 });
-    // Video Autoplay on Scroll
-    const videoContainers = document.querySelectorAll('.video-container');
-    let playingVideos = new Set();
+  // Video Autoplay on Scroll
+const videoContainers = document.querySelectorAll('.video-container');
+let playingVideos = new Set();
 
-    function isInViewport(el) {
-      const rect = el.getBoundingClientRect();
-      return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      );
+function isInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+function playVideo(videoId) {
+  if (!playingVideos.has(videoId)) {
+    document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+    playingVideos.add(videoId);
+  }
+}
+
+window.addEventListener('scroll', () => {
+  videoContainers.forEach(container => {
+    const iframe = container.querySelector('iframe');
+    if (iframe && isInViewport(container)) {
+      playVideo(iframe.id);
     }
+  });
+});
 
-    function playVideo(videoId) {
-      if (!playingVideos.has(videoId)) {
-        document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-        playingVideos.add(videoId);
-      }
+window.addEventListener('load', () => {
+  videoContainers.forEach(container => {
+    const iframe = container.querySelector('iframe');
+    if (iframe && isInViewport(container)) {
+      playVideo(iframe.id);
     }
-
-    window.addEventListener('scroll', () => {
-      videoContainers.forEach(container => {
-        const iframe = container.querySelector('iframe');
-        if (iframe && isInViewport(container)) {
-          playVideo(iframe.id);
-        }
-      });
-    });
-
+  });
+});
     window.addEventListener('load', () => {
       videoContainers.forEach(container => {
         const iframe = container.querySelector('iframe');
@@ -823,35 +831,35 @@ document.getElementById('reveal-form-btn-2').addEventListener('click', function(
       });
     });
 
-    // Play/Pause Toggle
-    document.querySelectorAll('.play-pause-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const videoId = btn.dataset.video;
-        const isPlaying = btn.textContent === '⏸️';
-        if (isPlaying) {
-          document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-          btn.textContent = '▶️';
-        } else {
-          document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-          btn.textContent = '⏸️';
-        }
-      });
-    });
+  // Play/Pause Toggle
+document.querySelectorAll('.play-pause-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const videoId = btn.dataset.video;
+    const isPlaying = btn.textContent === '⏸️';
+    if (isPlaying) {
+      document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      btn.textContent = '▶️';
+    } else {
+      document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+      btn.textContent = '⏸️';
+    }
+  });
+});
 
-    // Mute/Unmute Toggle
-    document.querySelectorAll('.mute-unmute-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const videoId = btn.dataset.video;
-        const isMuted = btn.textContent === '🔇';
-        if (isMuted) {
-          document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
-          btn.textContent = '🔊';
-        } else {
-          document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
-          btn.textContent = '🔇';
-        }
-      });
-    });
+// Mute/Unmute Toggle
+document.querySelectorAll('.mute-unmute-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const videoId = btn.dataset.video;
+    const isMuted = btn.textContent === '🔇';
+    if (isMuted) {
+      document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+      btn.textContent = '🔊';
+    } else {
+      document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+      btn.textContent = '🔇';
+    }
+  });
+});
   </script>
 </body>
 </html>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Smart Android Projector | KENDO PROJECTORS</title>
   <meta name="description" content="Get a 100-inch Full HD Smart Android Projector for ₦315,000 (10% OFF). Payment on Delivery. Free Gifts. Order Now!">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     /* ===== MINIMAL, FAST CSS ===== */
     *{margin:0;padding:0;box-sizing:border-box}
@@ -17,8 +17,8 @@
     
     /* Header */
     header{padding:15px 0;background:#fff;border-bottom:1px solid #eee}
-    .logo{font-size:26px;font-weight:800;color:var(--dark)}
-    .logo span{color:var(--primary)}
+    .logo-container{text-align:center;padding:10px 0}
+    .logo{max-width:200px;height:auto;display:block;margin:0 auto}
     
     /* Hero */
     .hero{padding:60px 0;text-align:center;background:#fff}
@@ -56,7 +56,7 @@
     
     /* Video Section */
     .video-section{padding:50px 0;background:#fff;text-align:center}
-    .video-container{max-width:800px;margin:0 auto;background:#000;border-radius:12px;overflow:hidden}
+    .video-container{max-width:800px;margin:0 auto;background:#000;border-radius:12px;overflow:hidden;position:relative}
     .video-placeholder{position:relative;padding-bottom:56.25%;height:0}
     .video-placeholder iframe{position:absolute;top:0;left:0;width:100%;height:100%}
     
@@ -143,26 +143,85 @@
       .timer{gap:6px}
       .timer-unit{min-width:40px}
     }
+
+    /* Video Section Styles */
+    .video-section {
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    .video-section h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+    }
+
+    .play-pause-btn,
+    .mute-unmute-btn {
+      position: absolute;
+      bottom: 10px;
+      background: rgba(255,255,255,0.8);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .play-pause-btn:hover,
+    .mute-unmute-btn:hover {
+      background: white;
+    }
+
+    .play-pause-btn {
+      left: 10px;
+    }
+
+    .mute-unmute-btn {
+      right: 10px;
+    }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
     <div class="container">
-      <a href="#" class="logo">KENDO <span>PROJECTORS</span></a>
+      <div class="logo-container">
+        <img src="images/kendo-store-logo.png" alt="Kendo Store" class="logo">
+      </div>
     </div>
   </header>
 
   <!-- Hero -->
-<section class="hero">
-  <div class="container">
-    <!-- Purple Box with White Text -->
-    <div style="background: #6F08F4; padding: 20px 30px; border-radius: 12px; margin: 20px auto; max-width: 800px; text-align: center;">
-      <h1 style="font-size: 2.2rem; color: white; margin: 0; line-height: 1.3; font-weight: 800; text-shadow: 0 2px 5px rgba(0,0,0,0.3);">
-        Big Screen Entertainment<br>Without Breaking the Bank
-      </h1>
-    </div>
-    
+  <section class="hero">
+    <div class="container">
+      <!-- Purple Box with White Text -->
+      <div style="background: #6F08F4; padding: 20px 30px; border-radius: 12px; margin: 20px auto; max-width: 800px; text-align: center;">
+        <h1 style="font-size: 2.2rem; color: white; margin: 0; line-height: 1.3; font-weight: 800; text-shadow: 0 2px 5px rgba(0,0,0,0.3);">
+          Big Screen Entertainment<br>Without Breaking the Bank
+        </h1>
+      </div>
+      
       <p>In 2025, you no longer need to spend ₦1million plus on a Smart TV. The <span class="highlight">Kendo Smart Android Projector</span> gives you a massive 100-inch cinema experience at a fraction of the cost.</p>
 
       <div class="price-display">
@@ -232,47 +291,63 @@
     </div>
   </section>
 
-  <!-- Video Section 1 -->
+  <!-- Video Section 1: Auto-Focus -->
   <section class="video-section">
     <div class="container">
-      <h2 class="section-title"><span style="color:var(--dark)">WATCH HOW IT WORKS</span></h2>
+      <h2>SEE AUTO-FOCUS, 100-INCH PROJECTION, AND EASY SETUP IN ACTION!</h2>
       <div class="video-container">
-        <div class="video-placeholder">
-          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&mute=1" 
-                  title="Kendo Projector Demo" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen></iframe>
-        </div>
+        <iframe 
+          id="video1"
+          src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1?autoplay=0&mute=1&loop=1&playlist=YOUR_VIDEO_ID_1&playsinline=1&controls=0&rel=0&showinfo=0" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+        <button class="play-pause-btn" data-video="video1">▶️</button>
+        <button class="mute-unmute-btn" data-video="video1">🔇</button>
       </div>
       <p style="margin-top:20px;color:#6c757d">See auto-focus, 100-inch projection, and easy setup in action!</p>
     </div>
   </section>
 
-  <!-- Video Section 2 -->
+  <!-- Video Section 2: Bright Room -->
   <section class="video-section">
     <div class="container">
-      <h2 class="section-title"><span style="color:var(--dark)">CUSTOMER SETUP DEMO</span></h2>
+      <h2>HOW IT LOOKS IN A BRIGHT ROOM</h2>
       <div class="video-container">
-        <div class="video-placeholder">
-          <iframe src="https://www.youtube.com/embed/9bZkp7qP85E?autoplay=0&mute=1" 
-                  title="Customer Setup Demo" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen></iframe>
-        </div>
+        <iframe 
+          id="video2"
+          src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2?autoplay=0&mute=1&loop=1&playlist=YOUR_VIDEO_ID_2&playsinline=1&controls=0&rel=0&showinfo=0" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+        <button class="play-pause-btn" data-video="video2">▶️</button>
+        <button class="mute-unmute-btn" data-video="video2">🔇</button>
       </div>
       <p style="margin-top:20px;color:#6c757d">Watch real customers set up their projector in under 5 minutes!</p>
     </div>
-  </section> 
+  </section>
 
-  <!-- Second Order Now Button -->
-<div style="text-align:center; margin:30px 0;">
-  <a href="#" class="cta-button-urgent" id="reveal-form-btn-2">
-    ORDER NOW BEFORE DISCOUNT EXPIRES!
-  </a>
-</div> 
-  
+  <!-- Video Section 3: Great Sound -->
+  <section class="video-section">
+    <div class="container">
+      <h2>WITH GREAT SOUND</h2>
+      <div class="video-container">
+        <iframe 
+          id="video3"
+          src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3?autoplay=0&mute=1&loop=1&playlist=YOUR_VIDEO_ID_3&playsinline=1&controls=0&rel=0&showinfo=0" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+        <button class="play-pause-btn" data-video="video3">▶️</button>
+        <button class="mute-unmute-btn" data-video="video3">🔇</button>
+      </div>
+      <p style="margin-top:20px;color:#6c757d">Experience immersive audio that brings movies and music to life!</p>
+    </div>
+  </section>
+
   <!-- Specifications Table -->
   <section class="specs-section">
     <div class="container">
@@ -671,13 +746,78 @@
       document.getElementById('order-form-section').style.display = 'block';
       document.getElementById('order-form-section').scrollIntoView({ behavior: 'smooth' });
     });
-    
-    // Make second button reveal the form too
-document.getElementById('reveal-form-btn-2').addEventListener('click', function(e) {
-  e.preventDefault();
-  document.getElementById('order-form-section').style.display = 'block';
-  document.getElementById('order-form-section').scrollIntoView({ behavior: 'smooth' });
-});
+
+    // Scroll-Triggered Autoplay for Videos
+    const videoContainers = document.querySelectorAll('.video-container');
+    let playingVideos = new Set(); // Track which videos are playing
+
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+
+    window.addEventListener('scroll', () => {
+      videoContainers.forEach(container => {
+        const iframe = container.querySelector('iframe');
+        const videoId = iframe.id;
+
+        if (isInViewport(container) && !playingVideos.has(videoId)) {
+          iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+          playingVideos.add(videoId);
+        }
+      });
+    });
+
+    window.addEventListener('load', () => {
+      videoContainers.forEach(container => {
+        const iframe = container.querySelector('iframe');
+        const videoId = iframe.id;
+
+        if (isInViewport(container)) {
+          iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+          playingVideos.add(videoId);
+        }
+      });
+    });
+
+    // Play/Pause Toggle
+    document.querySelectorAll('.play-pause-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const videoId = button.dataset.video;
+        const iframe = document.getElementById(videoId);
+        const isPlaying = button.textContent === '⏸️';
+
+        if (isPlaying) {
+          iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+          button.textContent = '▶️';
+        } else {
+          iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+          button.textContent = '⏸️';
+        }
+      });
+    });
+
+    // Mute/Unmute Toggle
+    document.querySelectorAll('.mute-unmute-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const videoId = button.dataset.video;
+        const iframe = document.getElementById(videoId);
+        const isMuted = button.textContent === '🔇';
+
+        if (isMuted) {
+          iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+          button.textContent = '🔊';
+        } else {
+          iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+          button.textContent = '🔇';
+        }
+      });
+    });
   </script>
 </body>
 </html>

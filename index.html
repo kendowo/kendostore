@@ -752,15 +752,19 @@
       });
     });
 
-    // Reveal form
-    function revealForm() {
+   // Reveal form on CTA click
+    document.getElementById('reveal-form-btn').addEventListener('click', function(e) {
+      e.preventDefault();
       document.getElementById('order-form-section').style.display = 'block';
       document.getElementById('order-form-section').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    document.getElementById('reveal-form-btn').addEventListener('click', revealForm);
-    document.getElementById('reveal-form-btn-2').addEventListener('click', revealForm);
-
+    });
+    
+    // Make second button reveal the form too
+document.getElementById('reveal-form-btn-2').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('order-form-section').style.display = 'block';
+  document.getElementById('order-form-section').scrollIntoView({ behavior: 'smooth' });
+});
     // Video Autoplay on Scroll
     const videoContainers = document.querySelectorAll('.video-container');
     let playingVideos = new Set();

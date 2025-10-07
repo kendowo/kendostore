@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Smart Android Projector | KENDO PROJECTORS</title>
+  <title>Smart Android Projector | KENDO STORE</title>
   <meta name="description" content="Get a 100-inch Full HD Smart Android Projector for ₦315,000 (10% OFF). Payment on Delivery. Free Gifts. Order Now!">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     /* ===== MINIMAL, FAST CSS ===== */
     *{margin:0;padding:0;box-sizing:border-box}
@@ -57,8 +57,6 @@
     /* Video Section */
     .video-section{padding:50px 0;background:#fff;text-align:center}
     .video-container{max-width:800px;margin:0 auto;background:#000;border-radius:12px;overflow:hidden;position:relative}
-    .video-placeholder{position:relative;padding-bottom:56.25%;height:0}
-    .video-placeholder iframe{position:absolute;top:0;left:0;width:100%;height:100%}
     
     /* Specs Table */
     .specs-section{padding:50px 0;background:#fff}
@@ -107,12 +105,51 @@
     .whatsapp-btn i{font-size:1.2rem}
     
     /* Final CTA - Red Animated Button */
-    .final-cta{padding:50px 0;background:#fff;text-align:center}
-    .final-cta h2{font-size:1.7rem;color:var(--dark);margin-bottom:20px}
-    .final-cta p{max-width:700px;margin:0 auto 25px;color:#6c757d}
-    .cta-button-urgent{background:linear-gradient(135deg,#e53935,#d32f2f);color:white;border:none;padding:16px 40px;font-size:1.25rem;font-weight:700;border-radius:8px;cursor:pointer;text-decoration:none;display:inline-block;margin:20px 0;font-family:inherit;box-shadow:0 4px 12px rgba(229,57,53,0.3);animation:pulse 2s infinite;transition:all 0.3s ease}
-    .cta-button-urgent:hover{background:linear-gradient(135deg,#d32f2f,#b71c1c);transform:translateY(-3px);box-shadow:0 6px 16px rgba(229,57,53,0.5)}
-    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(229,57,53,0.4)}70%{box-shadow:0 0 0 12px rgba(229,57,53,0)}100%{box-shadow:0 0 0 0 rgba(229,57,53,0)}}
+    .final-cta,
+    .second-cta {
+      padding:50px 0;
+      background:#fff;
+      text-align:center;
+    }
+    .final-cta h2,
+    .second-cta h2 {
+      font-size:1.7rem;
+      color:var(--dark);
+      margin-bottom:20px;
+    }
+    .final-cta p,
+    .second-cta p {
+      max-width:700px;
+      margin:0 auto 25px;
+      color:#6c757d;
+    }
+    .cta-button-urgent {
+      background:linear-gradient(135deg,#e53935,#d32f2f);
+      color:white;
+      border:none;
+      padding:16px 40px;
+      font-size:1.25rem;
+      font-weight:700;
+      border-radius:8px;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-block;
+      margin:20px 0;
+      font-family:inherit;
+      box-shadow:0 4px 12px rgba(229,57,53,0.3);
+      animation:pulse 2s infinite;
+      transition:all 0.3s ease;
+    }
+    .cta-button-urgent:hover {
+      background:linear-gradient(135deg,#d32f2f,#b71c1c);
+      transform:translateY(-3px);
+      box-shadow:0 6px 16px rgba(229,57,53,0.5);
+    }
+    @keyframes pulse {
+      0%{box-shadow:0 0 0 0 rgba(229,57,53,0.4)}
+      70%{box-shadow:0 0 0 12px rgba(229,57,53,0)}
+      100%{box-shadow:0 0 0 0 rgba(229,57,53,0)}
+    }
     
     /* Embedded Form Section */
     #order-form-section{background:#f9f7ff}
@@ -130,50 +167,7 @@
     .floating-whatsapp{position:fixed;bottom:20px;right:20px;z-index:1000}
     .floating-whatsapp a{display:flex;align-items:center;justify-content:center;width:60px;height:60px;background:#25D366;color:#fff;font-size:1.5rem;border-radius:50%;box-shadow:0 4px 12px rgba(37,211,102,0.4)}
     
-    /* Responsive */
-    @media (max-width:768px){
-      .headline-urgent{font-size:1.8rem}
-      .carousel-item{height:300px}
-      .package-options{flex-direction:column;align-items:center}
-      .timer-unit{min-width:45px;padding:8px 0;font-size:1rem}
-    }
-    @media (max-width:480px){
-      .headline-urgent{font-size:1.6rem}
-      .carousel-item{height:250px}
-      .timer{gap:6px}
-      .timer-unit{min-width:40px}
-    }
-
-    /* Video Section Styles */
-    .video-section {
-      margin: 40px 0;
-      text-align: center;
-    }
-
-    .video-section h2 {
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      color: #333;
-      margin-bottom: 20px;
-    }
-
-    .video-container {
-      position: relative;
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .video-container iframe {
-      width: 100%;
-      height: 450px;
-      border: none;
-    }
-
+    /* Video Controls */
     .play-pause-btn,
     .mute-unmute-btn {
       position: absolute;
@@ -187,18 +181,34 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-
     .play-pause-btn:hover,
     .mute-unmute-btn:hover {
       background: white;
     }
+    .play-pause-btn { left: 10px; }
+    .mute-unmute-btn { right: 10px; }
 
-    .play-pause-btn {
-      left: 10px;
+    /* Video Headers */
+    .video-section h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #333;
+      margin-bottom: 20px;
     }
 
-    .mute-unmute-btn {
-      right: 10px;
+    /* Responsive */
+    @media (max-width:768px){
+      .headline-urgent{font-size:1.8rem}
+      .carousel-item{height:300px}
+      .package-options{flex-direction:column;align-items:center}
+      .timer-unit{min-width:45px;padding:8px 0;font-size:1rem}
+    }
+    @media (max-width:480px){
+      .headline-urgent{font-size:1.6rem}
+      .carousel-item{height:250px}
+      .timer{gap:6px}
+      .timer-unit{min-width:40px}
     }
   </style>
 </head>
@@ -215,7 +225,6 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <!-- Purple Box with White Text -->
       <div style="background: #6F08F4; padding: 20px 30px; border-radius: 12px; margin: 20px auto; max-width: 800px; text-align: center;">
         <h1 style="font-size: 2.2rem; color: white; margin: 0; line-height: 1.3; font-weight: 800; text-shadow: 0 2px 5px rgba(0,0,0,0.3);">
           Big Screen Entertainment<br>Without Breaking the Bank
@@ -291,7 +300,7 @@
     </div>
   </section>
 
-  <!-- Video Section 1: Auto-Focus -->
+  <!-- Video Section 1 -->
   <section class="video-section">
     <div class="container">
       <h2>SEE AUTO-FOCUS, 100-INCH PROJECTION, AND EASY SETUP IN ACTION!</h2>
@@ -310,7 +319,7 @@
     </div>
   </section>
 
-  <!-- Video Section 2: Bright Room -->
+  <!-- Video Section 2 -->
   <section class="video-section">
     <div class="container">
       <h2>HOW IT LOOKS IN A BRIGHT ROOM</h2>
@@ -329,7 +338,7 @@
     </div>
   </section>
 
-  <!-- Video Section 3: Great Sound -->
+  <!-- Video Section 3 -->
   <section class="video-section">
     <div class="container">
       <h2>WITH GREAT SOUND</h2>
@@ -345,6 +354,15 @@
         <button class="mute-unmute-btn" data-video="video3">🔇</button>
       </div>
       <p style="margin-top:20px;color:#6c757d">Experience immersive audio that brings movies and music to life!</p>
+    </div>
+  </section>
+
+  <!-- Second CTA Button -->
+  <section class="second-cta">
+    <div class="container">
+      <a href="#" class="cta-button-urgent" id="reveal-form-btn-2">
+        ORDER NOW BEFORE DISCOUNT EXPIRES!
+      </a>
     </div>
   </section>
 
@@ -509,10 +527,9 @@
     </div>
   </section>
 
-  <!-- VilleSec-Style Netlify Form -->
+  <!-- Netlify Form -->
   <div id="order-form-section" style="display: none; padding: 50px 0; background: #f9f7ff;">
     <div class="container">
-      <!-- Urgent Red Note -->
       <div style="max-width: 600px; margin: 0 auto 25px; background: white; padding: 20px; border: 3px solid #e53935; border-radius: 12px; box-shadow: 0 4px 12px rgba(229,57,53,0.2);">
         <p style="font-weight: 700; color: #e53935; font-size: 1.1rem; margin: 0; line-height: 1.5;">
           <strong>NOTE:</strong> Before Placing This Order, Please Ensure You Verify The Price Listed There.<br><br>
@@ -520,7 +537,6 @@
         </p>
       </div>
 
-      <!-- Form Container -->
       <div style="max-width: 600px; margin: 0 auto; background: white; padding: 30px; border: 1px solid #eee; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
         <h2 style="font-size: 1.7rem; color: #1A0047; margin-bottom: 15px; text-align: center; font-weight: 800;">
           Please Fill The Form Below To Place Your Order
@@ -619,7 +635,6 @@
         </form>
       </div>
 
-      <!-- Trust Badges -->
       <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 25px;">
         <div style="display: flex; align-items: center; gap: 6px; font-weight: 700; color: #25D366;">
           <i class="fas fa-shield-alt"></i> PAYMENT ON DELIVERY
@@ -664,7 +679,7 @@
     </div>
   </footer>
 
-  <!-- Floating WhatsApp Button -->
+  <!-- Floating WhatsApp -->
   <div class="floating-whatsapp">
     <a href="https://wa.me/2348108577500?text=Hi%20Kendo%20Store,%20I%20want%20to%20order%20the%20Smart%20Projector!" target="_blank">
       <i class="fab fa-whatsapp"></i>
@@ -672,7 +687,7 @@
   </div>
 
   <script>
-    // Persistent 6-hour timer
+    // Timer
     function updateCountdown() {
       const now = Date.now();
       let end = localStorage.getItem('kendo_timer');
@@ -692,7 +707,7 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // Carousel Logic
+    // Carousel
     const carouselInner = document.getElementById('carousel-inner');
     const dots = document.querySelectorAll('.dot');
     const prevBtn = document.getElementById('prev-btn');
@@ -724,35 +739,34 @@
       updateCarousel();
     });
 
-    // Auto-rotate every 5 seconds
     setInterval(() => {
       currentIndex = (currentIndex + 1) % totalItems;
       updateCarousel();
     }, 5000);
 
     // Package selection
-    let selectedPackage = "OPTION 1";
     document.querySelectorAll('.package-btn').forEach(btn => {
       btn.addEventListener('click', function() {
-        selectedPackage = this.textContent.trim();
         document.querySelectorAll('.package-btn').forEach(b => b.classList.remove('active'));
         this.classList.add('active');
       });
     });
 
-    // Reveal form on CTA click
-    document.getElementById('reveal-form-btn').addEventListener('click', function(e) {
-      e.preventDefault();
+    // Reveal form
+    function revealForm() {
       document.getElementById('order-form-section').style.display = 'block';
       document.getElementById('order-form-section').scrollIntoView({ behavior: 'smooth' });
-    });
+    }
 
-    // Scroll-Triggered Autoplay for Videos
+    document.getElementById('reveal-form-btn').addEventListener('click', revealForm);
+    document.getElementById('reveal-form-btn-2').addEventListener('click', revealForm);
+
+    // Video Autoplay on Scroll
     const videoContainers = document.querySelectorAll('.video-container');
-    let playingVideos = new Set(); // Track which videos are playing
+    let playingVideos = new Set();
 
-    function isInViewport(element) {
-      const rect = element.getBoundingClientRect();
+    function isInViewport(el) {
+      const rect = el.getBoundingClientRect();
       return (
         rect.top >= 0 &&
         rect.left >= 0 &&
@@ -761,14 +775,18 @@
       );
     }
 
+    function playVideo(videoId) {
+      if (!playingVideos.has(videoId)) {
+        document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        playingVideos.add(videoId);
+      }
+    }
+
     window.addEventListener('scroll', () => {
       videoContainers.forEach(container => {
         const iframe = container.querySelector('iframe');
-        const videoId = iframe.id;
-
-        if (isInViewport(container) && !playingVideos.has(videoId)) {
-          iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-          playingVideos.add(videoId);
+        if (iframe && isInViewport(container)) {
+          playVideo(iframe.id);
         }
       });
     });
@@ -776,45 +794,38 @@
     window.addEventListener('load', () => {
       videoContainers.forEach(container => {
         const iframe = container.querySelector('iframe');
-        const videoId = iframe.id;
-
-        if (isInViewport(container)) {
-          iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-          playingVideos.add(videoId);
+        if (iframe && isInViewport(container)) {
+          playVideo(iframe.id);
         }
       });
     });
 
     // Play/Pause Toggle
-    document.querySelectorAll('.play-pause-btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const videoId = button.dataset.video;
-        const iframe = document.getElementById(videoId);
-        const isPlaying = button.textContent === '⏸️';
-
+    document.querySelectorAll('.play-pause-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const videoId = btn.dataset.video;
+        const isPlaying = btn.textContent === '⏸️';
         if (isPlaying) {
-          iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-          button.textContent = '▶️';
+          document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+          btn.textContent = '▶️';
         } else {
-          iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-          button.textContent = '⏸️';
+          document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+          btn.textContent = '⏸️';
         }
       });
     });
 
     // Mute/Unmute Toggle
-    document.querySelectorAll('.mute-unmute-btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const videoId = button.dataset.video;
-        const iframe = document.getElementById(videoId);
-        const isMuted = button.textContent === '🔇';
-
+    document.querySelectorAll('.mute-unmute-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const videoId = btn.dataset.video;
+        const isMuted = btn.textContent === '🔇';
         if (isMuted) {
-          iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
-          button.textContent = '🔊';
+          document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+          btn.textContent = '🔊';
         } else {
-          iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
-          button.textContent = '🔇';
+          document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+          btn.textContent = '🔇';
         }
       });
     });

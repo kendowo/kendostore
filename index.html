@@ -14,6 +14,7 @@
     .container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
     h1,h2,h3{font-weight:700}
     a{text-decoration:none;color:inherit}
+
     
     /* Make Videos Bigger */
     .video-container iframe {
@@ -200,24 +201,16 @@
   </style>
 </head>
 <body>
-  <!-- Header with SVG Logo -->
-  <header>
-    <div class="container">
-      <div class="logo-container">
-        <!-- Inline SVG Logo -->
-        <svg class="logo" width="200" height="150" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
-          <!-- Purple trapezoid shape -->
-          <path d="M80,40 L120,40 L110,80 L90,80 Z" fill="#6F08F4" />
-          <!-- White symbol inside -->
-          <path d="M95,50 C97,50 99,52 99,54 C99,56 97,58 95,58 C93,58 91,56 91,54 C91,52 93,50 95,50 Z M95,58 C97,58 99,60 99,62 C99,64 97,66 95,66 C93,66 91,64 91,62 C91,60 93,58 95,58 Z" fill="white" />
-          <!-- KENDO text -->
-          <text x="100" y="105" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="bold" fill="#2E0060" text-anchor="middle">KENDO</text>
-          <!-- STORE text -->
-          <text x="100" y="130" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#2E0060" text-anchor="middle">STORE</text>
-        </svg>
-      </div>
+<!-- Fixed header with logo in top left corner -->
+<header>
+  <div class="container" style="position: relative; padding: 15px 0;">
+    <div style="position: absolute; top: 15px; left: 20px; z-index: 100;">
+      <img src="images/kendo-logo.png" alt="Kendo Store" style="max-width: 180px; height: auto;">
     </div>
-  </header>
+    <!-- This creates space so content doesn't overlap with logo -->
+    <div style="height: 60px;"></div>
+  </div>
+</header>
 
   <!-- Hero -->
   <section class="hero">
@@ -557,16 +550,17 @@
             <input type="tel" id="phone" name="phone" placeholder="08012345678" required style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit;">
           </div>
 
-          <div style="margin-bottom: 20px;">
-            <label for="whatsapp" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">Your WhatsApp Number *</label>
-            <input type="tel" id="whatsapp" name="whatsapp" placeholder="08012345678" required style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit;">
-          </div>
+          <!-- Your WhatsApp Number (Optional) -->
+<div style="margin-bottom: 20px;">
+  <label for="whatsapp" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">Your WhatsApp Number <span style="color: #6c757d; font-weight: normal;">(Optional)</span></label>
+  <input type="tel" id="whatsapp" name="whatsapp" placeholder="08012345678" style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit;">
+</div>
 
-          <div style="margin-bottom: 20px;">
-            <label for="email" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">Your Email Address <span style="color: #6c757d; font-weight: normal;">(Optional)</span></label>
-            <input type="email" id="email" name="email" placeholder="yourname@email.com" style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit;">
-          </div>
-
+<!-- Your Email Address (Required) -->
+<div style="margin-bottom: 20px;">
+  <label for="email" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">Your Email Address *</label>
+  <input type="email" id="email" name="email" placeholder="yourname@email.com" required style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit;">
+</div>
           <div style="margin-bottom: 20px;">
             <label for="state" style="display: block; margin-bottom: 8px; font-weight: 700; color: #495057;">Your Delivery State *</label>
             <select id="state" name="state" required style="width: 100%; padding: 14px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; font-family: inherit; background: white;">

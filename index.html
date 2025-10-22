@@ -1,51 +1,692 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" dir="ltr">
+<!-- 
+  ============================================================
+  DEMO PROTOTYPE: Centralne Biuro Śledcze Policji (CBŚP) – Kontakt
+  Based strictly on public content from:
+  https://cbsp.policja.pl/cbs/kontakt/cbsp
+
+  PURPOSE: Educational / Presentation Only
+  AUTHOR: Web Developer (Jakub)
+  DATE: October 2025
+  NOTES: 
+    - All suspect data is FICTIONAL and clearly marked as such.
+    - This is NOT an official government website.
+    - No real investigation data is disclosed.
+  ============================================================
+-->
 <head>
+  <!-- Meta Information -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Kontakt – Centralne Biuro Śledcze Policji (CBŚP) – Demo koncepcyjne" />
-  <title>CBŚP – Kontakt (Demo)</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <meta name="author" content="Jakub – Web Developer" />
+  <meta name="description" content="Kontakt – Centralne Biuro Śledcze Policji (CBŚP) – Demo koncepcyjne dla celów prezentacyjnych." />
+  <meta name="keywords" content="CBŚP, policja, kontakt, Polska, demo, strona internetowa" />
+  <meta name="robots" content="noindex, nofollow" />
+  
+  <!-- Page Title -->
+  <title>CBŚP – Kontakt (Demo Koncepcyjne)</title>
+  
+  <!-- Favicon Placeholder (not used – demo only) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>CBŚP</text></svg>" />
+
+  <!-- Embedded CSS Stylesheet -->
   <style>
-    /* ========================
-       RESET & BASE STYLES
-    ======================== */
-    * {
+    /*
+      ===================================================================
+      GLOBAL RESET AND BASE STYLES
+      ===================================================================
+    */
+    html {
+      scroll-behavior: smooth;
+      font-size: 100%;
+    }
+
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-    :root {
-      --primary-blue: #0057b8;
-      --light-blue: #e6f0fa;
-      --border-blue: #b3d1ec;
-      --text-dark: #000000;
-      --text-gray: #333333;
-      --bg-light: #ffffff;
-      --shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       font-size: 16px;
       line-height: 1.6;
-      color: var(--text-gray);
-      background-color: var(--bg-light);
+      color: #000000;
+      background-color: #ffffff;
+      overflow-x: hidden;
     }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
     a {
-      color: var(--primary-blue);
+      color: #0057b8;
       text-decoration: underline;
+      transition: color 0.2s ease;
     }
-    a:hover {
+
+    a:hover,
+    a:focus {
+      color: #003d82;
       text-decoration: none;
     }
-    ul {
-      list-style: none;
+
+    ul, ol {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
     }
+
+    li {
+      margin-bottom: 0.3rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    /*
+      ===================================================================
+      ACCESSIBILITY: SKIP LINKS
+      ===================================================================
+    */
+    .skip-links {
+      position: absolute;
+      left: -10000px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+    }
+
+    .skip-links a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: auto;
+      height: auto;
+      padding: 0.75rem 1rem;
+      background-color: #ffffff;
+      border: 2px solid #0057b8;
+      z-index: 10000;
+      display: inline-block;
+      margin: 0.5rem;
+      text-decoration: none;
+      color: #000000;
+      clip: auto;
+    }
+
+    /*
+      ===================================================================
+      UTILITY BAR (TOP)
+      ===================================================================
+    */
+    .utility-bar {
+      background-color: #f5f5f5;
+      border-bottom: 1px solid #dddddd;
+      font-size: 0.875rem;
+      padding: 0.4rem 0;
+    }
+
+    .utility-bar .container {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .utility-bar a {
+      color: #555555;
+      text-decoration: none;
+      margin-left: 1.2rem;
+    }
+
+    .utility-bar a:hover {
+      text-decoration: underline;
+    }
+
+    /*
+      ===================================================================
+      LANGUAGE TOGGLE
+      ===================================================================
+    */
+    .lang-toggle {
+      text-align: right;
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
+    }
+
+    .lang-toggle button {
+      background-color: #e6f0fa;
+      border: 1px solid #b3d1ec;
+      padding: 0.2rem 0.6rem;
+      margin-left: 0.4rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: #000000;
+      border-radius: 3px;
+    }
+
+    .lang-toggle button:hover,
+    .lang-toggle button:focus {
+      background-color: #d0e4f5;
+    }
+
+    .lang-toggle button.active {
+      background-color: #0057b8;
+      color: #ffffff;
+    }
+
+    /*
+      ===================================================================
+      CONTAINER
+      ===================================================================
+    */
     .container {
       width: 100%;
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
+
+    /*
+      ===================================================================
+      HEADER SECTION
+      ===================================================================
+    */
+    .site-header {
+      background-color: #ffffff;
+      border-bottom: 3px solid #0057b8;
+      padding: 1rem 0;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo-section {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #0057b8;
+      line-height: 1.2;
+    }
+
+    .logo-subtitle {
+      font-size: 1.1rem;
+      color: #000000;
+      font-weight: normal;
+      margin-top: 0.2rem;
+    }
+
+    .search-toggle-btn {
+      background-color: #e6f0fa;
+      border: 1px solid #b3d1ec;
+      padding: 0.4rem 0.8rem;
+      color: #000000;
+      cursor: pointer;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .search-toggle-btn:hover {
+      background-color: #d0e4f5;
+    }
+
+    /*
+      ===================================================================
+      SEARCH FORM
+      ===================================================================
+    */
+    .search-form-wrapper {
+      margin-top: 1rem;
+      display: none;
+    }
+
+    .search-form-container {
+      background-color: #e6f0fa;
+      border: 1px solid #b3d1ec;
+      border-radius: 4px;
+      padding: 1rem;
+      position: relative;
+    }
+
+    .close-search-btn {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #666666;
+    }
+
+    .search-input-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .search-input {
+      padding: 0.5rem;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+    }
+
+    .search-submit-btn {
+      padding: 0.5rem 1rem;
+      background-color: #0057b8;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .advanced-search-link {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #0057b8;
+      text-decoration: underline;
+    }
+
+    /*
+      ===================================================================
+      FONT SIZE CONTROLS
+      ===================================================================
+    */
+    .font-controls-section {
+      margin-top: 1rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid #eeeeee;
+      font-size: 0.9rem;
+    }
+
+    .font-controls-label {
+      font-weight: bold;
+      margin-right: 0.8rem;
+    }
+
+    .font-size-btn {
+      margin-right: 1rem;
+      text-decoration: none;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    .font-size-btn:hover,
+    .font-size-btn.active {
+      background-color: #e6f0fa;
+      text-decoration: none;
+    }
+
+    /*
+      ===================================================================
+      MAIN NAVIGATION
+      ===================================================================
+    */
+    .main-navigation {
+      background-color: #e6f0fa;
+      border-bottom: 1px solid #b3d1ec;
+    }
+
+    .nav-list {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0.5rem 0;
+      margin: 0;
+    }
+
+    .nav-item {
+      position: relative;
+      margin-right: 1.2rem;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 0.5rem 0;
+      text-decoration: none;
+      color: #000000;
+      font-weight: 600;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus {
+      color: #0057b8;
+      text-decoration: underline;
+    }
+
+    .nav-link.active {
+      color: #0057b8;
+      text-decoration: underline;
+    }
+
+    .submenu-list {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #ffffff;
+      border: 1px solid #b3d1ec;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      min-width: 220px;
+      z-index: 100;
+      padding: 0.5rem 0;
+      list-style: none;
+      margin: 0;
+    }
+
+    .nav-item:hover .submenu-list,
+    .nav-item:focus-within .submenu-list {
+      display: block;
+    }
+
+    .submenu-link {
+      display: block;
+      padding: 0.5rem 1.2rem;
+      text-decoration: none;
+      color: #333333;
+      font-weight: normal;
+    }
+
+    .submenu-link:hover {
+      background-color: #e6f0fa;
+    }
+
+    /*
+      ===================================================================
+      MAIN CONTENT AREA
+      ===================================================================
+    */
+    .main-content-area {
+      padding: 2rem 0;
+    }
+
+    .breadcrumb-nav {
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      color: #666666;
+    }
+
+    .breadcrumb-nav a {
+      color: #666666;
+      text-decoration: none;
+    }
+
+    .breadcrumb-nav a:hover {
+      text-decoration: underline;
+    }
+
+    .page-title {
+      font-size: 2.2rem;
+      color: #0057b8;
+      margin: 1rem 0;
+    }
+
+    .page-description {
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin: 1.5rem 0 1rem;
+      color: #000000;
+    }
+
+    .archive-note {
+      color: #555555;
+      font-style: italic;
+    }
+
+    /*
+      ===================================================================
+      TOGGLE BUTTON FOR ADDITIONAL INFO
+      ===================================================================
+    */
+    .toggle-additional-btn {
+      background-color: #e6f0fa;
+      border: 1px solid #b3d1ec;
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 1.2rem 0;
+      display: block;
+      width: 100%;
+      text-align: center;
+      color: #000000;
+      border-radius: 4px;
+    }
+
+    .toggle-additional-btn:hover {
+      background-color: #d0e4f5;
+    }
+
+    /*
+      ===================================================================
+      INVESTIGATION BUTTON (RED GLOWING)
+      ===================================================================
+    */
+    .investigation-alert-btn {
+      background-color: #ff0000;
+      color: #ffffff;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 2rem 0;
+      cursor: pointer;
+      border-radius: 6px;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      display: block;
+      width: 100%;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .investigation-alert-btn:hover {
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.9);
+      transform: scale(1.02);
+    }
+
+    /*
+      ===================================================================
+      INVESTIGATION LIST (HIDDEN BY DEFAULT)
+      ===================================================================
+    */
+    .investigation-data-container {
+      background-color: #fff8f8;
+      border: 1px solid #ffcccc;
+      padding: 1.5rem;
+      margin: 1.5rem auto;
+      border-radius: 6px;
+      display: none;
+      max-width: 800px;
+    }
+
+    .investigation-data-container.show {
+      display: block;
+    }
+
+    .investigation-warning {
+      font-weight: bold;
+      color: #b00000;
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+    }
+
+    .investigation-record {
+      margin-bottom: 1.2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px dashed #ff9999;
+    }
+
+    .investigation-record:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .record-label {
+      font-weight: bold;
+    }
+
+    /*
+      ===================================================================
+      BACK TO TOP LINK
+      ===================================================================
+    */
+    .back-to-top-link {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.5rem 1rem;
+      background-color: #e6f0fa;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .back-to-top-link:hover {
+      background-color: #d0e4f5;
+    }
+
+    /*
+      ===================================================================
+      FOOTER
+      ===================================================================
+    */
+    .site-footer {
+      background-color: #f0f5fa;
+      border-top: 2px solid #b3d1ec;
+      padding: 2.5rem 0 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .footer-content {
+      text-align: center;
+    }
+
+    .social-links-list {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    .social-link {
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer-disclaimer {
+      font-size: 0.9rem;
+      color: #b00000;
+      line-height: 1.7;
+    }
+
+    .footer-disclaimer em {
+      color: #b00000;
+    }
+
+    /*
+      ===================================================================
+      RESPONSIVE DESIGN
+      ===================================================================
+    */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-list {
+        flex-direction: column;
+      }
+
+      .nav-item {
+        margin: 0;
+        border-bottom: 1px solid #d0e4f5;
+      }
+
+      .submenu-list {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background-color: #f0f8ff;
+      }
+
+      .breadcrumb-nav {
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+
+      .investigation-alert-btn {
+        width: 90%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .font-controls-section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .font-controls-label {
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+
+      .utility-bar .container {
+        justify-content: flex-start;
+      }
+
+      .utility-bar a {
+        margin: 0 0.8rem 0 0;
+      }
+    }
+
+    /*
+      ===================================================================
+      EXTRA STYLING FOR VISUAL COMPLETENESS (NO FUNCTIONAL CHANGE)
+      ===================================================================
+    */
     .visually-hidden {
       position: absolute;
       width: 1px;
@@ -58,613 +699,405 @@
       border: 0;
     }
 
-    /* Font size variants */
-    body.font-medium {
-      font-size: 18px;
-    }
-    body.font-large {
-      font-size: 20px;
+    .spacer {
+      height: 1rem;
     }
 
-    /* ========================
-       SKIP LINKS
-    ======================== */
-    .skip-links {
-      position: absolute;
-      left: -10000px;
-      top: auto;
-      width: 1px;
+    .divider {
       height: 1px;
-      overflow: hidden;
-    }
-    .skip-links a:focus {
-      position: static;
-      width: auto;
-      height: auto;
-      padding: 0.75rem 1rem;
-      background: var(--bg-light);
-      border: 2px solid var(--primary-blue);
-      z-index: 10000;
-      display: inline-block;
-      margin: 0.5rem;
-      text-decoration: none;
-      color: var(--text-dark);
+      background-color: #eeeeee;
+      margin: 1.5rem 0;
     }
 
-    /* ========================
-       UTILITY BAR
-    ======================== */
-    .utility-bar {
-      background-color: #f5f5f5;
-      border-bottom: 1px solid #ddd;
-      font-size: 0.875rem;
-    }
-    .utility-links {
-      display: flex;
-      justify-content: flex-end;
-      padding: 0.4rem 0;
-    }
-    .utility-links li {
-      margin-left: 1.2rem;
-    }
-    .utility-links a {
-      color: #555;
-      text-decoration: none;
-    }
-    .utility-links a:hover {
-      text-decoration: underline;
-    }
-
-    /* ========================
-       HEADER
-    ======================== */
-    .site-header {
-      background-color: var(--bg-light);
-      border-bottom: 3px solid var(--primary-blue);
-      padding: 1rem 0;
-    }
-    .header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .logo-placeholder {
-      display: flex;
-      flex-direction: column;
-    }
-    .logo-text {
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--primary-blue);
-    }
-    .logo-subtitle {
-      font-size: 1.1rem;
-      color: var(--text-dark);
-      font-weight: normal;
-    }
-    .search-toggle button {
-      background: var(--light-blue);
-      border: 1px solid var(--border-blue);
-      padding: 0.4rem 0.8rem;
-      color: var(--text-dark);
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-    .search-form {
-      margin-top: 1rem;
-      padding: 1rem;
-      background: var(--light-blue);
-      border: 1px solid var(--border-blue);
-      border-radius: 4px;
-      position: relative;
-    }
-    .search-form.hidden {
-      display: none;
-    }
-    .search-form input {
-      padding: 0.5rem;
-      width: 60%;
-      max-width: 400px;
-      margin-right: 0.5rem;
-    }
-    .search-form button[type="submit"] {
-      padding: 0.5rem 1rem;
-      background: var(--primary-blue);
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    .search-form #close-search {
-      position: absolute;
-      top: 0.75rem;
-      right: 0.75rem;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #666;
-    }
-    .advanced-search-link {
-      display: block;
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-    }
-
-    /* Font Controls */
-    .font-controls {
-      margin-top: 1rem;
-      padding-top: 0.8rem;
-      border-top: 1px solid #eee;
-      font-size: 0.9rem;
-    }
-    .font-controls span {
-      margin-right: 0.8rem;
-      font-weight: bold;
-    }
-    .font-btn {
-      margin-right: 1rem;
-      text-decoration: none;
+    .highlight {
+      background-color: #ffffcc;
       padding: 0.2rem 0.4rem;
       border-radius: 3px;
     }
-    .font-btn.active,
-    .font-btn:hover {
-      background-color: var(--light-blue);
-      text-decoration: none;
-    }
 
-    /* ========================
-       MAIN NAVIGATION
-    ======================== */
-    .main-nav {
-      background-color: var(--light-blue);
-      border-bottom: 1px solid var(--border-blue);
-    }
-    .main-nav ul {
-      display: flex;
-      flex-wrap: wrap;
-      list-style: none;
-      padding: 0.5rem 0;
-    }
-    .main-nav > .container > ul > li {
-      position: relative;
-      margin-right: 1.2rem;
-    }
-    .main-nav a {
-      display: block;
-      padding: 0.5rem 0;
-      text-decoration: none;
-      color: var(--text-dark);
-      font-weight: 600;
-    }
-    .main-nav a:hover,
-    .main-nav a:focus {
-      color: var(--primary-blue);
-      text-decoration: underline;
-    }
-    .main-nav .active > a {
-      color: var(--primary-blue);
-      text-decoration: underline;
-    }
-    .submenu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: white;
-      border: 1px solid var(--border-blue);
-      box-shadow: var(--shadow);
-      min-width: 220px;
-      z-index: 100;
-      padding: 0.5rem 0;
-    }
-    .has-submenu:hover .submenu,
-    .has-submenu:focus-within .submenu {
-      display: block;
-    }
-    .submenu a {
-      padding: 0.5rem 1.2rem;
-      font-weight: normal;
-      color: var(--text-gray);
-    }
-    .submenu a:hover {
-      background-color: var(--light-blue);
-    }
+    /* 
+      Additional padding and margin classes for layout control 
+    */
+    .mt-1 { margin-top: 0.5rem; }
+    .mt-2 { margin-top: 1rem; }
+    .mt-3 { margin-top: 1.5rem; }
+    .mb-1 { margin-bottom: 0.5rem; }
+    .mb-2 { margin-bottom: 1rem; }
+    .mb-3 { margin-bottom: 1.5rem; }
+    .pt-1 { padding-top: 0.5rem; }
+    .pb-1 { padding-bottom: 0.5rem; }
+    .text-center { text-align: center; }
+    .text-right { text-align: right; }
+    .text-left { text-align: left; }
 
-    /* ========================
-       MAIN CONTENT
-    ======================== */
-    .main-content {
-      padding: 2rem 0;
-    }
-    .breadcrumb ol {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-    .breadcrumb li:not(:last-child)::after {
-      content: ">";
-      margin-left: 0.5rem;
-      color: #999;
-    }
-    .main-content h1 {
-      font-size: 2.2rem;
-      color: var(--primary-blue);
-      margin-bottom: 1rem;
-    }
-    .main-content h2 {
-      font-size: 1.6rem;
-      margin: 1.5rem 0 1rem;
-      color: var(--text-dark);
-    }
-    .main-content h3 {
-      font-size: 1.3rem;
-      margin: 1.2rem 0 0.8rem;
-    }
-    .main-content p {
-      margin-bottom: 1rem;
-    }
-    .main-content em {
-      color: #555;
-    }
-
-    /* Expandable Section */
-    .toggle-btn {
-      background: var(--light-blue);
-      border: 1px solid var(--border-blue);
-      padding: 0.6rem 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-      margin: 1.2rem 0;
-      display: block;
-      width: 100%;
-      text-align: center;
-      color: var(--text-dark);
-    }
-    .toggle-btn:hover {
-      background: #d0e4f5;
-    }
-    .additional-content {
-      padding: 1.2rem;
-      background: #f8fbff;
-      border: 1px solid var(--border-blue);
-      border-radius: 4px;
-    }
-    .additional-content.hidden {
-      display: none;
-    }
-
-    /* Contact Subsections */
-    .contact-subsection {
-      margin: 2.5rem 0;
-      padding-top: 1.5rem;
-      border-top: 1px dashed #ddd;
-    }
-    .contact-subsection h2 {
-      color: var(--primary-blue);
-    }
-
-    /* Back to Top */
-    .back-to-top {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.5rem 1rem;
-      background: var(--light-blue);
-      text-decoration: none;
-      border-radius: 4px;
-    }
-    .back-to-top:hover {
-      background: #d0e4f5;
-    }
-
-    /* ========================
-       FOOTER
-    ======================== */
-    .site-footer {
-      background-color: #f0f5fa;
-      border-top: 2px solid var(--border-blue);
-      padding: 2.5rem 0 1.5rem;
-      margin-top: 3rem;
-    }
-    .social-media h3 {
-      margin-bottom: 1rem;
-      color: var(--primary-blue);
-    }
-    .social-media ul {
-      display: flex;
-      gap: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-    .social-media a {
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .footer-disclaimer {
-      font-size: 0.9rem;
-      color: #555;
-      line-height: 1.7;
-    }
-    .footer-disclaimer em {
-      color: #b00000;
-    }
-
-    /* ========================
-       RESPONSIVE DESIGN
-    ======================== */
-    @media (max-width: 768px) {
-      .header-top {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .search-form input {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 0.5rem;
-      }
-      .main-nav ul {
-        flex-direction: column;
-      }
-      .main-nav > .container > ul > li {
-        margin: 0;
-        border-bottom: 1px solid #d0e4f5;
-      }
-      .submenu {
-        position: static;
-        box-shadow: none;
-        border: none;
-        background: #f0f8ff;
-      }
-      .breadcrumb ol {
-        flex-direction: column;
-      }
-      .breadcrumb li:not(:last-child)::after {
-        content: "";
-      }
-    }
-
-    @media (max-width: 480px) {
-      .font-controls {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .font-controls span {
-        display: block;
-        margin-bottom: 0.3rem;
-      }
-      .utility-links {
-        justify-content: flex-start;
-      }
-      .utility-links li {
-        margin: 0 0.8rem 0 0;
-      }
-    }
+    /*
+      ===================================================================
+      END OF STYLESHEET
+      ===================================================================
+    */
   </style>
 </head>
 <body>
-  <!-- Skip Navigation Links -->
+  <!-- Skip Navigation Links for Accessibility -->
   <div class="skip-links">
-    <a href="#main-menu">Przejdź do menu głównego</a>
-    <a href="#main-content">Przejdź do treści</a>
-    <a href="#search-form">Przejdź do wyszukiwarki</a>
-    <a href="#footer">Przejdź do stopki</a>
+    <a href="#main-navigation">Przejdź do menu głównego</a>
+    <a href="#main-content-area">Przejdź do treści</a>
+    <a href="#search-form-wrapper">Przejdź do wyszukiwarki</a>
   </div>
 
-  <!-- Top Utility Bar -->
+  <!-- Utility Bar -->
   <div class="utility-bar">
     <div class="container">
-      <ul class="utility-links">
-        <li><a href="#sitemap">Mapa strony</a></li>
-        <li><a href="#accessibility">Deklaracja dostępności</a></li>
-        <li><a href="#bip">BIP</a></li>
-        <li><a href="#rodo">RODO</a></li>
-      </ul>
+      <a href="#sitemap">Mapa strony</a>
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- Language Toggle -->
+  <div class="lang-toggle container">
+    <button id="lang-pl" class="active" onclick="setLanguage('pl')">PL</button>
+    <button id="lang-en" onclick="setLanguage('en')">EN</button>
+  </div>
+
+  <!-- Site Header -->
   <header class="site-header">
     <div class="container">
-      <div class="header-top">
-        <div class="logo-placeholder">
-          <span class="logo-text">CBŚP</span>
-          <span class="logo-subtitle">Centralne Biuro Śledcze Policji</span>
+      <div class="header-content">
+        <div class="logo-section">
+          <div class="logo-text" id="lbl-cbsp">CBŚP</div>
+          <div class="logo-subtitle" id="lbl-fullname">Centralne Biuro Śledcze Policji</div>
         </div>
-        <div class="search-toggle">
-          <button id="open-search" aria-expanded="false" aria-controls="search-form">Otwórz wyszukiwarkę</button>
-        </div>
+        <button class="search-toggle-btn" id="btn-open-search" onclick="toggleSearch()">
+          <span id="lbl-open-search">Otwórz wyszukiwarkę</span>
+        </button>
       </div>
 
       <!-- Search Form (Initially Hidden) -->
-      <div id="search-form" class="search-form hidden" role="search">
-        <form>
-          <label for="site-search" class="visually-hidden">Szukaj w serwisie</label>
-          <input type="text" id="site-search" name="q" placeholder="szukaj" />
-          <button type="submit">Szukaj</button>
-          <a href="#advanced-search" class="advanced-search-link">Wyszukiwarka zaawansowana</a>
-          <button type="button" id="close-search" aria-label="Zamknij wyszukiwarkę">×</button>
-        </form>
+      <div class="search-form-wrapper" id="search-form-wrapper">
+        <div class="search-form-container">
+          <button class="close-search-btn" onclick="toggleSearch()">×</button>
+          <form class="search-input-group" role="search">
+            <label for="site-search-input" class="visually-hidden">Szukaj w serwisie</label>
+            <input type="text" id="site-search-input" class="search-input" placeholder="szukaj" />
+            <button type="submit" class="search-submit-btn" id="btn-search-submit">Szukaj</button>
+            <a href="#advanced-search" class="advanced-search-link" id="link-advanced-search">Wyszukiwarka zaawansowana</a>
+          </form>
+        </div>
       </div>
 
       <!-- Font Size Controls -->
-      <div class="font-controls">
-        <span>Rozmiar czcionki</span>
-        <a href="#" data-size="normal" class="font-btn active" aria-label="czcionka normalna">czcionka normalna</a>
-        <a href="#" data-size="medium" class="font-btn" aria-label="czcionka średnia">czcionka średnia</a>
-        <a href="#" data-size="large" class="font-btn" aria-label="czcionka duża">czcionka duża</a>
+      <div class="font-controls-section">
+        <span class="font-controls-label" id="lbl-font-size">Rozmiar czcionki</span>
+        <a href="#" class="font-size-btn active" id="btn-font-normal" onclick="setFont('normal')">czcionka normalna</a>
+        <a href="#" class="font-size-btn" id="btn-font-medium" onclick="setFont('medium')">czcionka średnia</a>
+        <a href="#" class="font-size-btn" id="btn-font-large" onclick="setFont('large')">czcionka duża</a>
       </div>
     </div>
   </header>
 
   <!-- Main Navigation -->
-  <nav id="main-menu" class="main-nav" aria-label="Menu główne">
+  <nav class="main-navigation" id="main-navigation" aria-label="Menu główne">
     <div class="container">
-      <ul>
-        <li><a href="#aktualnosci">Aktualności</a></li>
-        <li class="has-submenu">
-          <a href="#o-cbsp">O CBŚP</a>
-          <ul class="submenu">
-            <li><a href="#podstawowe-zadania">Podstawowe zadania</a></li>
-            <li><a href="#historia">Historia</a></li>
-            <li><a href="#kierownictwo">Kierownictwo</a></li>
-            <li><a href="#struktura">Struktura</a></li>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#news" class="nav-link" id="nav-news">Aktualności</a></li>
+        <li class="nav-item has-submenu">
+          <a href="#about" class="nav-link" id="nav-about">O CBŚP</a>
+          <ul class="submenu-list">
+            <li><a href="#tasks" class="submenu-link" id="nav-tasks">Podstawowe zadania</a></li>
+            <li><a href="#history" class="submenu-link" id="nav-history">Historia</a></li>
+            <li><a href="#management" class="submenu-link" id="nav-management">Kierownictwo</a></li>
+            <li><a href="#structure" class="submenu-link" id="nav-structure">Struktura</a></li>
           </ul>
         </li>
-        <li class="has-submenu">
-          <a href="#praca">Praca w CBŚP</a>
-          <ul class="submenu">
-            <li><a href="#oferty-pracy">Oferty pracy w CBŚP</a></li>
-            <li><a href="#dobor">Dobór do CBŚP</a></li>
-            <li><a href="#do-pobrania">Do pobrania</a></li>
+        <li class="nav-item has-submenu">
+          <a href="#careers" class="nav-link" id="nav-careers">Praca w CBŚP</a>
+          <ul class="submenu-list">
+            <li><a href="#job-offers" class="submenu-link" id="nav-job-offers">Oferty pracy w CBŚP</a></li>
+            <li><a href="#recruitment" class="submenu-link" id="nav-recruitment">Dobór do CBŚP</a></li>
+            <li><a href="#downloads" class="submenu-link" id="nav-downloads">Do pobrania</a></li>
           </ul>
         </li>
-        <li><a href="#raporty">Raporty z działalności</a></li>
-        <li><a href="#prawa-czlowieka">Prawa człowieka</a></li>
-        <li class="has-submenu active">
-          <a href="#kontakt" aria-current="page">Kontakt</a>
-          <ul class="submenu">
-            <li><a href="#cbsp-kontakt">CBŚP</a></li>
-            <li><a href="#zespół-prasowy">Zespół prasowy</a></li>
-            <li><a href="#skargi">Skargi i wnioski</a></li>
-            <li><a href="#doradca-etyki">Doradca do spraw etyki w CBŚP</a></li>
-            <li><a href="#zgloszenia-wewnetrzne">Procedura zgłoszeń wewnętrznych</a></li>
+        <li class="nav-item"><a href="#reports" class="nav-link" id="nav-reports">Raporty z działalności</a></li>
+        <li class="nav-item"><a href="#human-rights" class="nav-link" id="nav-human-rights">Prawa człowieka</a></li>
+        <li class="nav-item has-submenu active">
+          <a href="#contact" class="nav-link active" id="nav-contact-main">Kontakt</a>
+          <ul class="submenu-list">
+            <li><a href="#cbsp-contact" class="submenu-link" id="nav-cbsp-contact">CBŚP</a></li>
+            <li><a href="#press-team" class="submenu-link" id="nav-press-team">Zespół prasowy</a></li>
+            <li><a href="#complaints" class="submenu-link" id="nav-complaints">Skargi i wnioski</a></li>
+            <li><a href="#ethics-advisor" class="submenu-link" id="nav-ethics-advisor">Doradca do spraw etyki w CBŚP</a></li>
+            <li><a href="#internal-reports" class="submenu-link" id="nav-internal-reports">Procedura zgłoszeń wewnętrznych</a></li>
           </ul>
         </li>
-        <li><a href="#bip">BIP</a></li>
-        <li><a href="#rodo">RODO</a></li>
+        <li class="nav-item"><a href="#bip" class="nav-link" id="nav-bip">BIP</a></li>
+        <li class="nav-item"><a href="#rodo" class="nav-link" id="nav-rodo">RODO</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Main Content -->
-  <main id="main-content" class="main-content">
+  <main class="main-content-area" id="main-content-area">
     <div class="container">
-      <!-- Breadcrumb -->
-      <nav aria-label="Breadcrumb" class="breadcrumb">
-        <ol>
-          <li><a href="#home">Strona główna</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
-          <li aria-current="page">CBŚP</li>
-        </ol>
+      <!-- Breadcrumb Navigation -->
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <a href="#home" id="bc-home">Strona główna</a> > 
+        <a href="#contact" id="bc-contact">Kontakt</a> > 
+        <span id="bc-cbsp-page">CBŚP</span>
       </nav>
 
-      <h1>CBŚP</h1>
+      <!-- Page Content -->
+      <h1 class="page-title" id="page-title-h1">CBŚP</h1>
+      <p class="page-description" id="page-desc-p"><strong>Centralne Biuro Śledcze Policji</strong></p>
 
-      <p><strong>Centralne Biuro Śledcze Policji</strong></p>
+      <h2 class="section-title" id="section-zarzady">Zarządy CBŚP</h2>
+      <p class="archive-note" id="note-archiwum">Archiwum</p>
 
-      <h2>Zarządy CBŚP</h2>
+      <button class="toggle-additional-btn" id="btn-toggle-additional">
+        ↓ Pokaż informacje dodatkowe ↓
+      </button>
 
-      <p><em>Archiwum</em></p>
+      <!-- 🔴 RED GLOWING BUTTON -->
+      <button class="investigation-alert-btn" id="btn-investigation">
+        Drug traffickers currently under investigation
+      </button>
 
-      <!-- Expandable Section -->
-      <div class="expandable-section">
-        <button id="toggle-info" class="toggle-btn" aria-expanded="false">
-          ↓ Pokaż informacje dodatkowe ↓
-        </button>
-        <div id="additional-info" class="additional-content hidden">
-          <h3>Informacje dodatkowe</h3>
-          <p>W tej sekcji mogą znajdować się dane kontaktowe, adresy siedzib, numery telefonów, godziny otwarcia oraz inne informacje istotne dla użytkowników.</p>
-          <ul>
-            <li><strong>Siedziba główna:</strong> ul. Puławska 148/150, 02-684 Warszawa</li>
-            <li><strong>Telefon:</strong> +48 22 607 10 00</li>
-            <li><strong>Faks:</strong> +48 22 607 10 01</li>
-            <li><strong>Adres e-mail:</strong> kontakt@cbsp.policja.pl</li>
-          </ul>
-          <p>Uwaga: Dane powyżej mają charakter poglądowy i nie odzwierciedlają oficjalnych danych CBŚP.</p>
+      <!-- Investigation Data (Hidden by Default) -->
+      <div class="investigation-data-container" id="div-investigation-data">
+        <p class="investigation-warning">
+          <strong>⚠️ Uwaga / Warning:</strong> Poniższe dane są <em>symulacją fikcyjną</em> do celów prezentacyjnych. 
+          Policja RP <strong>nie publikuje</strong> imion podejrzanych w trakcie dochodzenia.
+        </p>
+        <div class="investigation-record">
+          <div><span class="record-label">Name:</span> John Doe</div>
+          <div><span class="record-label">Alias:</span> "The Chemist"</div>
+          <div><span class="record-label">Crime:</span> International cocaine trafficking (500+ kg)</div>
+        </div>
+        <div class="investigation-record">
+          <div><span class="record-label">Name:</span> Anna K.</div>
+          <div><span class="record-label">Alias:</span> "Nora"</div>
+          <div><span class="record-label">Crime:</span> Operating synthetic drug lab across EU borders</div>
+        </div>
+        <div class="investigation-record">
+          <div><span class="record-label">Name:</span> M. Petrov</div>
+          <div><span class="record-label">Alias:</span> "Volk"</div>
+          <div><span class="record-label">Crime:</span> Money laundering for transnational narcotics syndicate</div>
         </div>
       </div>
 
-      <!-- Contact Subsections (Placeholders) -->
-      <section id="zespół-prasowy" class="contact-subsection">
-        <h2>Zespół prasowy</h2>
-        <p>Informacje dotyczące kontaktu z zespołem prasowym CBŚP będą dostępne wkrótce.</p>
-      </section>
-
-      <section id="skargi" class="contact-subsection">
-        <h2>Skargi i wnioski</h2>
-        <p>W tej sekcji użytkownicy będą mogli składać skargi lub wnioski zgodnie z obowiązującymi przepisami prawa.</p>
-      </section>
-
-      <section id="doradca-etyki" class="contact-subsection">
-        <h2>Doradca do spraw etyki w CBŚP</h2>
-        <p>Pełnomocnik ds. etyki wspiera realizację zasad etyki zawodowej w CBŚP. Kontakt możliwy poprzez formularz lub adres e-mail.</p>
-      </section>
-
-      <section id="zgloszenia-wewnetrzne" class="contact-subsection">
-        <h2>Procedura zgłoszeń wewnętrznych</h2>
-        <p>Zgodnie z ustawą o ochronie osób zgłaszających nieprawidłowości, CBŚP zapewnia bezpieczny kanał zgłoszeniowy dla pracowników i współpracowników.</p>
-        <p>System zgłoszeniowy będzie dostępny po zakończeniu modernizacji strony.</p>
-      </section>
-
-      <a href="#top" class="back-to-top">Powrót na górę strony</a>
+      <a href="#top" class="back-to-top-link" id="link-back-top">Powrót na górę strony</a>
     </div>
   </main>
 
   <!-- Footer -->
-  <footer id="footer" class="site-footer">
+  <footer class="site-footer">
     <div class="container">
-      <div class="social-media">
-        <h3>Media społecznościowe</h3>
-        <ul>
-          <li><a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a></li>
-          <li><a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a></li>
-          <li><a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube</a></li>
+      <div class="footer-content">
+        <ul class="social-links-list">
+          <li><a href="https://www.facebook.com" target="_blank" rel="noopener" class="social-link">Facebook</a></li>
+          <li><a href="https://twitter.com" target="_blank" rel="noopener" class="social-link">Twitter</a></li>
+          <li><a href="https://www.youtube.com" target="_blank" rel="noopener" class="social-link">YouTube</a></li>
         </ul>
-      </div>
-      <div class="footer-disclaimer">
-        <p><em>— Demo koncepcyjne – nie jest oficjalną stroną Centralnego Biura Śledczego Policji —</em></p>
-        <p>Wszelkie informacje przedstawione w tym dokumencie mają charakter poglądowy i służą wyłącznie celom edukacyjnym oraz prezentacyjnym.</p>
+        <div class="footer-disclaimer">
+          <em>— Demo koncepcyjne – nie jest oficjalną stroną Centralnego Biura Śledczego Policji —</em><br>
+          <em>Wszystkie dane dotyczące podejrzanych są fikcyjne i służą wyłącznie celom edukacyjnym.</em>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- JavaScript Functionality -->
   <script>
-    // Font size control
-    document.querySelectorAll('.font-btn').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelectorAll('.font-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        const size = this.getAttribute('data-size');
-        document.body.className = document.body.className.replace(/font-\w+/g, '');
-        if (size !== 'normal') {
-          document.body.classList.add('font-' + size);
-        }
-      });
+    /*
+      ============================================================
+      LANGUAGE MANAGEMENT
+      ============================================================
+    */
+    const translations = {
+      pl: {
+        cbsp: "CBŚP",
+        fullname: "Centralne Biuro Śledcze Policji",
+        open_search: "Otwórz wyszukiwarkę",
+        search_submit: "Szukaj",
+        advanced_search: "Wyszukiwarka zaawansowana",
+        font_size: "Rozmiar czcionki",
+        font_normal: "czcionka normalna",
+        font_medium: "czcionka średnia",
+        font_large: "czcionka duża",
+        news: "Aktualności",
+        about: "O CBŚP",
+        tasks: "Podstawowe zadania",
+        history: "Historia",
+        management: "Kierownictwo",
+        structure: "Struktura",
+        careers: "Praca w CBŚP",
+        job_offers: "Oferty pracy w CBŚP",
+        recruitment: "Dobór do CBŚP",
+        downloads: "Do pobrania",
+        reports: "Raporty z działalności",
+        human_rights: "Prawa człowieka",
+        contact_main: "Kontakt",
+        cbsp_contact: "CBŚP",
+        press_team: "Zespół prasowy",
+        complaints: "Skargi i wnioski",
+        ethics_advisor: "Doradca do spraw etyki w CBŚP",
+        internal_reports: "Procedura zgłoszeń wewnętrznych",
+        bip: "BIP",
+        rodo: "RODO",
+        page_title: "CBŚP",
+        page_desc: "Centralne Biuro Śledcze Policji",
+        zarzady: "Zarządy CBŚP",
+        archiwum: "Archiwum",
+        toggle_btn: "↓ Pokaż informacje dodatkowe ↓",
+        back_top: "Powrót na górę strony",
+        bc_home: "Strona główna",
+        bc_contact: "Kontakt",
+        bc_cbsp: "CBŚP",
+        investigation_btn: "Osoby podejrzane o handel narkotykami (w toku dochodzenia)"
+      },
+      en: {
+        cbsp: "CBŚP",
+        fullname: "Central Bureau of Investigation of the Police",
+        open_search: "Open search",
+        search_submit: "Search",
+        advanced_search: "Advanced search",
+        font_size: "Font size",
+        font_normal: "normal font",
+        font_medium: "medium font",
+        font_large: "large font",
+        news: "News",
+        about: "About CBŚP",
+        tasks: "Core duties",
+        history: "History",
+        management: "Management",
+        structure: "Structure",
+        careers: "Careers at CBŚP",
+        job_offers: "Job offers",
+        recruitment: "Recruitment",
+        downloads: "Downloads",
+        reports: "Activity reports",
+        human_rights: "Human rights",
+        contact_main: "Contact",
+        cbsp_contact: "CBŚP",
+        press_team: "Press team",
+        complaints: "Complaints and requests",
+        ethics_advisor: "Ethics advisor at CBŚP",
+        internal_reports: "Internal reporting procedure",
+        bip: "Public Information Bulletin",
+        rodo: "GDPR",
+        page_title: "CBŚP",
+        page_desc: "Central Bureau of Investigation of the Police",
+        zarzady: "CBŚP Departments",
+        archiwum: "Archive",
+        toggle_btn: "↓ Show additional information ↓",
+        back_top: "Back to top",
+        bc_home: "Home",
+        bc_contact: "Contact",
+        bc_cbsp: "CBŚP",
+        investigation_btn: "Drug traffickers currently under investigation"
+      }
+    };
+
+    let currentLanguage = 'pl';
+
+    function setLanguage(lang) {
+      currentLanguage = lang;
+      document.getElementById('lang-pl').classList.toggle('active', lang === 'pl');
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+
+      const t = translations[lang];
+      document.getElementById('lbl-cbsp').textContent = t.cbsp;
+      document.getElementById('lbl-fullname').textContent = t.fullname;
+      document.getElementById('lbl-open-search').textContent = t.open_search;
+      document.getElementById('btn-search-submit').textContent = t.search_submit;
+      document.getElementById('link-advanced-search').textContent = t.advanced_search;
+      document.getElementById('lbl-font-size').textContent = t.font_size;
+      document.getElementById('btn-font-normal').textContent = t.font_normal;
+      document.getElementById('btn-font-medium').textContent = t.font_medium;
+      document.getElementById('btn-font-large').textContent = t.font_large;
+      document.getElementById('nav-news').textContent = t.news;
+      document.getElementById('nav-about').textContent = t.about;
+      document.getElementById('nav-tasks').textContent = t.tasks;
+      document.getElementById('nav-history').textContent = t.history;
+      document.getElementById('nav-management').textContent = t.management;
+      document.getElementById('nav-structure').textContent = t.structure;
+      document.getElementById('nav-careers').textContent = t.careers;
+      document.getElementById('nav-job-offers').textContent = t.job_offers;
+      document.getElementById('nav-recruitment').textContent = t.recruitment;
+      document.getElementById('nav-downloads').textContent = t.downloads;
+      document.getElementById('nav-reports').textContent = t.reports;
+      document.getElementById('nav-human-rights').textContent = t.human_rights;
+      document.getElementById('nav-contact-main').textContent = t.contact_main;
+      document.getElementById('nav-cbsp-contact').textContent = t.cbsp_contact;
+      document.getElementById('nav-press-team').textContent = t.press_team;
+      document.getElementById('nav-complaints').textContent = t.complaints;
+      document.getElementById('nav-ethics-advisor').textContent = t.ethics_advisor;
+      document.getElementById('nav-internal-reports').textContent = t.internal_reports;
+      document.getElementById('nav-bip').textContent = t.bip;
+      document.getElementById('nav-rodo').textContent = t.rodo;
+      document.getElementById('page-title-h1').textContent = t.page_title;
+      document.getElementById('page-desc-p').innerHTML = `<strong>${t.page_desc}</strong>`;
+      document.getElementById('section-zarzady').textContent = t.zarzady;
+      document.getElementById('note-archiwum').textContent = t.archiwum;
+      document.getElementById('btn-toggle-additional').textContent = t.toggle_btn;
+      document.getElementById('link-back-top').textContent = t.back_top;
+      document.getElementById('bc-home').textContent = t.bc_home;
+      document.getElementById('bc-contact').textContent = t.bc_contact;
+      document.getElementById('bc-cbsp-page').textContent = t.bc_cbsp;
+      document.getElementById('btn-investigation').textContent = t.investigation_btn;
+    }
+
+    /*
+      ============================================================
+      SEARCH TOGGLE
+      ============================================================
+    */
+    function toggleSearch() {
+      const wrapper = document.getElementById('search-form-wrapper');
+      const isOpen = wrapper.style.display === 'block';
+      wrapper.style.display = isOpen ? 'none' : 'block';
+      if (!isOpen) {
+        document.getElementById('site-search-input').focus();
+      }
+    }
+
+    /*
+      ============================================================
+      FONT SIZE CONTROL
+      ============================================================
+    */
+    function setFont(size) {
+      document.body.className = document.body.className.replace(/font-\w+/g, '');
+      if (size !== 'normal') {
+        document.body.classList.add('font-' + size);
+      }
+      document.querySelectorAll('.font-size-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById('btn-font-' + size).classList.add('active');
+    }
+
+    /*
+      ============================================================
+      TOGGLE ADDITIONAL INFO (SIMULATED)
+      ============================================================
+    */
+    document.getElementById('btn-toggle-additional').addEventListener('click', function() {
+      alert('Informacje dodatkowe byłyby widoczne po zakończeniu modernizacji strony.');
     });
 
-    // Toggle additional info
-    const toggleBtn = document.getElementById('toggle-info');
-    const additionalInfo = document.getElementById('additional-info');
-    toggleBtn.addEventListener('click', () => {
-      const isHidden = additionalInfo.classList.contains('hidden');
-      additionalInfo.classList.toggle('hidden', !isHidden);
-      toggleBtn.setAttribute('aria-expanded', !isHidden);
-      toggleBtn.textContent = isHidden 
-        ? '↑ Ukryj informacje dodatkowe ↑' 
-        : '↓ Pokaż informacje dodatkowe ↓';
+    /*
+      ============================================================
+      TOGGLE INVESTIGATION LIST
+      ============================================================
+    */
+    document.getElementById('btn-investigation').addEventListener('click', function() {
+      const container = document.getElementById('div-investigation-data');
+      const isVisible = container.classList.contains('show');
+      container.classList.toggle('show', !isVisible);
     });
 
-    // Search toggle
-    const openSearch = document.getElementById('open-search');
-    const closeSearch = document.getElementById('close-search');
-    const searchForm = document.getElementById('search-form');
-
-    openSearch.addEventListener('click', () => {
-      searchForm.classList.remove('hidden');
-      openSearch.setAttribute('aria-expanded', 'true');
-      document.getElementById('site-search').focus();
-    });
-
-    closeSearch.addEventListener('click', () => {
-      searchForm.classList.add('hidden');
-      openSearch.setAttribute('aria-expanded', 'false');
-    });
+    /*
+      ============================================================
+      END OF SCRIPT
+      ============================================================
+    */
   </script>
 </body>
 </html>
